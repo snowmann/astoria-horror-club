@@ -4,7 +4,7 @@ import { isAdmin } from '@/access/isAdmin'
 export const Users: CollectionConfig = {
   slug: 'users',
   admin: {
-    useAsTitle: 'email',
+    useAsTitle: 'firstName',
   },
   auth: true,
   access: {
@@ -22,6 +22,16 @@ export const Users: CollectionConfig = {
     },
   },
   fields: [
+    {
+      name: 'firstName',
+      type: 'text',
+      required: true,
+    },
+    {
+      name: 'lastName',
+      type: 'text',
+      required: true,
+    },
     {
       name: 'role',
       type: 'select',
