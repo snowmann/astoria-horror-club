@@ -4,7 +4,7 @@ import { isAdmin } from '@/access/isAdmin'
 export const Users: CollectionConfig = {
   slug: 'users',
   admin: {
-    useAsTitle: 'firstName',
+    useAsTitle: 'fullName',
   },
   auth: true,
   access: {
@@ -46,6 +46,27 @@ export const Users: CollectionConfig = {
       required: true,
       defaultValue: 'user',
     },
+    {
+      name: 'fullName',
+      type: 'text',
+      admin: {
+        hidden: true,
+      },
+      hooks: {
+        beforeChange: [
+          ({ siblingData }) => {
+            // ensures data is not stored in DB
+            delete siblingData['fullName']
+          },
+        ],
+        afterRead: [
+          ({ data }) => {
+            return `${data?.firstName} ${data?.lastName}`
+          },
+        ],
+      },
+    },
+
     // Email added by default
     // Add more fields as needed
   ],
