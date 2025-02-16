@@ -1,7 +1,7 @@
 import type { CollectionConfig } from 'payload'
 
-export const Event: CollectionConfig = {
-  slug: 'event',
+export const Events: CollectionConfig = {
+  slug: 'events',
   fields: [
     {
       name: 'title',
