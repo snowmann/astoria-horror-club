@@ -185,7 +185,7 @@ export interface Article {
     };
     [k: string]: unknown;
   };
-  author: number | User;
+  author?: (number | null) | User;
   published?: boolean | null;
   published_at?: string | null;
   created_at?: string | null;

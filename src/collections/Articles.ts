@@ -21,24 +21,10 @@ export const Articles: CollectionConfig = {
       name: 'author',
       type: 'relationship',
       relationTo: 'users',
-      required: true,
-      validate: async (value: any, { req }: { req: any }) => {
-        if (!value) return 'Author is required'
-
-        const user = await req.payload.findByID({
-          collection: 'users',
-          id: value,
-        })
-
-        if (!user) return 'User not found'
-
-        const validRoles = ['admin', 'contributor', 'editor']
-        if (!validRoles.includes(user.role)) {
-          return 'Author must have the role of admin, contributor, or editor'
-        }
-
-        return true
+      admin: {
+        readOnly: true,
       },
+      defaultValue: ({ req }) => (req.user ? req.user.id : null),
     },
     {
       name: 'published',
