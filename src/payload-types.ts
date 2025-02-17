@@ -162,8 +162,14 @@ export interface Media {
 export interface Event {
   id: number;
   title: string;
+  description: string;
+  date: string;
+  image?: (number | null) | Media;
+  location: 'heartOfGold' | 'focalPoint' | 'shilTavern';
+  link?: string | null;
   updatedAt: string;
   createdAt: string;
+  _status?: ('draft' | 'published') | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -301,8 +307,14 @@ export interface MediaSelect<T extends boolean = true> {
  */
 export interface EventsSelect<T extends boolean = true> {
   title?: T;
+  description?: T;
+  date?: T;
+  image?: T;
+  location?: T;
+  link?: T;
   updatedAt?: T;
   createdAt?: T;
+  _status?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
