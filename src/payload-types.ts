@@ -189,13 +189,9 @@ export interface Article {
     [k: string]: unknown;
   };
   author?: (number | null) | User;
-  published?: boolean | null;
-  published_at?: string | null;
-  created_at?: string | null;
-  updated_at?: string | null;
-  archived?: boolean | null;
   updatedAt: string;
   createdAt: string;
+  _status?: ('draft' | 'published') | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -317,13 +313,9 @@ export interface ArticlesSelect<T extends boolean = true> {
   subtitle?: T;
   content?: T;
   author?: T;
-  published?: T;
-  published_at?: T;
-  created_at?: T;
-  updated_at?: T;
-  archived?: T;
   updatedAt?: T;
   createdAt?: T;
+  _status?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
