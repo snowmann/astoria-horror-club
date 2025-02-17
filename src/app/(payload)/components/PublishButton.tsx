@@ -1,5 +1,5 @@
 'use client'
-import { PublishButton as DefaultPublishButton } from '@payloadcms/ui'
+import { PublishButton } from '@payloadcms/ui'
 import React from 'react'
 import type { User } from '../../../payload-types'
 import { useAuth } from '@payloadcms/ui'
@@ -11,11 +11,7 @@ const CustomPublishButton = () => {
     return null
   }
 
-  return (
-    <div>
-      <DefaultPublishButton />
-    </div>
-  )
+  return <PublishButton />
 }
 
 export default CustomPublishButton
