@@ -6,6 +6,7 @@ import path from 'path'
 import { buildConfig } from 'payload'
 import { fileURLToPath } from 'url'
 import sharp from 'sharp'
+import { resendAdapter } from '@payloadcms/email-resend'
 
 import { Users } from './collections/Users'
 import { Media } from './collections/Media'
@@ -34,6 +35,11 @@ export default buildConfig({
     },
   }),
   sharp,
+  email: resendAdapter({
+    defaultFromAddress: 'boo@astoriahorrorclub.com',
+    defaultFromName: 'Astoria Horror Club',
+    apiKey: process.env.RESEND_API_KEY || '',
+  }),
   plugins: [
     payloadCloudPlugin(),
     // storage-adapter-placeholder
