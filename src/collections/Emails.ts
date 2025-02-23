@@ -20,7 +20,7 @@ export const Emails: CollectionConfig = {
   },
   access: {
     read: ({ req }: { req: PayloadRequest }) => {
-      return isAuthor({ req })
+      return isAdmin({ req })
     },
     create: ({ req }: { req: PayloadRequest }) => {
       return isAuthor({ req })

@@ -51,7 +51,7 @@ export const Subscribers: CollectionConfig = {
         ],
       },
     },
-    { name: 'email', type: 'text' },
+    { name: 'email', type: 'text', required: true },
     {
       name: 'subscriptions',
       type: 'join',

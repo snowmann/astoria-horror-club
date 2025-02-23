@@ -249,7 +249,7 @@ export interface Subscriber {
   firstName: string;
   lastName: string;
   fullName?: string | null;
-  email?: string | null;
+  email: string;
   subscriptions?: {
     docs?: (number | Subscription)[] | null;
     hasNextPage?: boolean | null;
