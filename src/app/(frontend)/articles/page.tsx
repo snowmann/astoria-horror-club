@@ -1,5 +1,5 @@
 import React from 'react'
 
-export default function AritclesFeed() {
+export default async function AritclesFeed() {
   return <h1>Articles Go Here</h1>
 }
