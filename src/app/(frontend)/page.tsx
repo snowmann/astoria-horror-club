@@ -5,9 +5,8 @@ import React from 'react'
 import { fileURLToPath } from 'url'
 
 import config from '@/payload.config'
-import './styles.css'
-
 import Subscribe from './components/Subscribe'
+
 export default async function HomePage() {
   const headers = await getHeaders()
   const payloadConfig = await config
