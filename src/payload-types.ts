@@ -217,7 +217,7 @@ export interface Email {
   id: number;
   title: string;
   subject: string;
-  body?: {
+  body: {
     root: {
       type: string;
       children: {
@@ -231,7 +231,7 @@ export interface Email {
       version: number;
     };
     [k: string]: unknown;
-  } | null;
+  };
   html?: string | null;
   author?: (number | null) | User;
   sendDate: string;

@@ -4,6 +4,7 @@ import { isAdmin } from '@/access/isAdmin'
 import type { CollectionConfig, PayloadRequest } from 'payload'
 import { getNextYearDate, toTitleCase } from '@/app/(payload)/utils.ts/collectionUtils'
 import { SUBSCRIPTIONS_LIST } from '@/app/(payload)/constants/subscriptionsList'
+import afterEmailCreate from '@/app/(payload)/hooks/afterEmailPublish'
 
 export const Emails: CollectionConfig = {
   slug: 'emails',
@@ -14,6 +15,9 @@ export const Emails: CollectionConfig = {
         PublishButton: '../app/(payload)/components/PublishButton',
       },
     },
+  },
+  hooks: {
+    afterOperation: [afterEmailCreate],
   },
   versions: {
     drafts: true,
@@ -52,7 +56,7 @@ export const Emails: CollectionConfig = {
       type: 'text',
       required: true,
     },
-    { name: 'body', type: 'richText' },
+    { name: 'body', type: 'richText', required: true },
     {
       name: 'html',
       type: 'code',
