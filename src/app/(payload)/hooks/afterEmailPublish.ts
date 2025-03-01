@@ -36,7 +36,7 @@ const afterEmailCreate: CollectionAfterOperationHook<'emails'> = async ({
     return result
   }
 
-  const { subject, body, sendDate } = result
+  const { subject, body, sendDatetime } = result
 
   const editorConfig = defaultEditorConfig
   editorConfig.features = [...defaultEditorFeatures, HTMLConverterFeature({})]
@@ -55,7 +55,7 @@ const afterEmailCreate: CollectionAfterOperationHook<'emails'> = async ({
     to: 't.herrmann227@gmail.com',
     subject,
     html,
-    scheduledAt: sendDate,
+    scheduledAt: sendDatetime,
   })
 
   return result
