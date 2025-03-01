@@ -217,7 +217,7 @@ export interface Email {
   id: number;
   title: string;
   subject: string;
-  body?: {
+  body: {
     root: {
       type: string;
       children: {
@@ -231,10 +231,10 @@ export interface Email {
       version: number;
     };
     [k: string]: unknown;
-  } | null;
+  };
   html?: string | null;
   author?: (number | null) | User;
-  sendDate: string;
+  sendDatetime: string;
   recipients: ('all' | 'events' | 'articles')[];
   updatedAt: string;
   createdAt: string;
@@ -421,7 +421,7 @@ export interface EmailsSelect<T extends boolean = true> {
   body?: T;
   html?: T;
   author?: T;
-  sendDate?: T;
+  sendDatetime?: T;
   recipients?: T;
   updatedAt?: T;
   createdAt?: T;
