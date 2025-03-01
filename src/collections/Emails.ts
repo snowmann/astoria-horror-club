@@ -75,7 +75,7 @@ export const Emails: CollectionConfig = {
       defaultValue: ({ req }) => (req.user ? req.user.id : null),
     },
     {
-      name: 'sendDate',
+      name: 'sendDatetime',
       type: 'date',
       required: true,
       admin: {

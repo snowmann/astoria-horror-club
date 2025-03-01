@@ -51,7 +51,7 @@ const afterEmailCreate: CollectionAfterOperationHook<'emails'> = async ({
   })
 
   // RESEND PARAMS https://resend.com/docs/api-reference/emails/send-email#body-parameters
-  const email = await payload.sendEmail({
+  await payload.sendEmail({
     to: 't.herrmann227@gmail.com',
     subject,
     html,
@@ -70,6 +70,8 @@ const AfterEmailUpdate: CollectionAfterOperationHook<'emails'> = async ({
   if (operation !== 'update' || result === null) {
     return result
   }
+
+  return result
 }
 
 export default afterEmailOperation
