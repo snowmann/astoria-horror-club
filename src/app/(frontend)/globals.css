@@ -153,11 +153,9 @@ body {
   color: rgb(1000, 1000, 1000);
 }
 
-@media (max-width: 1024px) {
-  body {
-    font-size: 15px;
-    line-height: 24px;
-  }
+/* Add cursor style for all buttons on hover */
+button:hover {
+  cursor: pointer;
 }
 
 img {
@@ -173,36 +171,8 @@ h1 {
   font-weight: bold;
 }
 
-@media (max-width: 1024px) {
-  h1 {
-    margin: 24px 0;
-    font-size: 42px;
-    line-height: 42px;
-  }
-}
-
-@media (max-width: 768px) {
-  h1 {
-    font-size: 38px;
-    line-height: 38px;
-  }
-}
-
-@media (max-width: 400px) {
-  h1 {
-    font-size: 32px;
-    line-height: 32px;
-  }
-}
-
 p {
   margin: 24px 0;
-}
-
-@media (max-width: 1024px) {
-  p {
-    margin: calc(var(--base) * 0.75) 0;
-  }
 }
 
 a {
@@ -233,12 +203,6 @@ svg {
   max-width: 1024px;
   margin: 0 auto;
   overflow: hidden;
-}
-
-@media (max-width: 400px) {
-  .home {
-    padding: 24px;
-  }
 }
 
 .home .content {
@@ -281,14 +245,7 @@ svg {
   display: flex;
   align-items: center;
   gap: 8px;
-}
-
-@media (max-width: 1024px) {
-  .home .footer {
-    flex-direction: column;
-    gap: 6px;
-  }
-}
+} */
 
 .home .footer p {
   margin: 0;

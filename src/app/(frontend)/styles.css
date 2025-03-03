@@ -30,11 +30,6 @@ body {
 
   margin: 0;
   color: rgb(1000, 1000, 1000);
-
-  @media (max-width: 1024px) {
-    font-size: 15px;
-    line-height: 24px;
-  }
 }
 
 img {
@@ -48,30 +43,10 @@ h1 {
   font-size: 64px;
   line-height: 70px;
   font-weight: bold;
-
-  @media (max-width: 1024px) {
-    margin: 24px 0;
-    font-size: 42px;
-    line-height: 42px;
-  }
-
-  @media (max-width: 768px) {
-    font-size: 38px;
-    line-height: 38px;
-  }
-
-  @media (max-width: 400px) {
-    font-size: 32px;
-    line-height: 32px;
-  }
 }
 
 p {
   margin: 24px 0;
-
-  @media (max-width: 1024px) {
-    margin: calc(var(--base) * 0.75) 0;
-  }
 }
 
 a {
@@ -102,10 +77,6 @@ svg {
   max-width: 1024px;
   margin: 0 auto;
   overflow: hidden;
-
-  @media (max-width: 400px) {
-    padding: 24px;
-  }
 
   .content {
     display: flex;
@@ -147,11 +118,6 @@ svg {
     display: flex;
     align-items: center;
     gap: 8px;
-
-    @media (max-width: 1024px) {
-      flex-direction: column;
-      gap: 6px;
-    }
 
     p {
       margin: 0;
