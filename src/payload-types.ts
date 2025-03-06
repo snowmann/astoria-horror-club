@@ -70,25 +70,19 @@ export interface Config {
     events: Event;
     articles: Article;
     emails: Email;
-    subscribers: Subscriber;
-    subscriptions: Subscription;
+    audiences: Audience;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
   };
-  collectionsJoins: {
-    subscribers: {
-      subscriptions: 'subscriptions';
-    };
-  };
+  collectionsJoins: {};
   collectionsSelect: {
     users: UsersSelect<false> | UsersSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
     events: EventsSelect<false> | EventsSelect<true>;
     articles: ArticlesSelect<false> | ArticlesSelect<true>;
     emails: EmailsSelect<false> | EmailsSelect<true>;
-    subscribers: SubscribersSelect<false> | SubscribersSelect<true>;
-    subscriptions: SubscriptionsSelect<false> | SubscriptionsSelect<true>;
+    audiences: AudiencesSelect<false> | AudiencesSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -242,30 +236,12 @@ export interface Email {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "subscribers".
+ * via the `definition` "audiences".
  */
-export interface Subscriber {
+export interface Audience {
   id: number;
-  firstName: string;
-  lastName: string;
-  fullName?: string | null;
-  email: string;
-  subscriptions?: {
-    docs?: (number | Subscription)[] | null;
-    hasNextPage?: boolean | null;
-  } | null;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "subscriptions".
- */
-export interface Subscription {
-  id: number;
-  subscriber?: (number | null) | Subscriber;
-  events?: boolean | null;
-  articles?: boolean | null;
+  name: string;
+  resendId: string;
   updatedAt: string;
   createdAt: string;
 }
@@ -297,12 +273,8 @@ export interface PayloadLockedDocument {
         value: number | Email;
       } | null)
     | ({
-        relationTo: 'subscribers';
-        value: number | Subscriber;
-      } | null)
-    | ({
-        relationTo: 'subscriptions';
-        value: number | Subscription;
+        relationTo: 'audiences';
+        value: number | Audience;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -429,25 +401,11 @@ export interface EmailsSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "subscribers_select".
+ * via the `definition` "audiences_select".
  */
-export interface SubscribersSelect<T extends boolean = true> {
-  firstName?: T;
-  lastName?: T;
-  fullName?: T;
-  email?: T;
-  subscriptions?: T;
-  updatedAt?: T;
-  createdAt?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "subscriptions_select".
- */
-export interface SubscriptionsSelect<T extends boolean = true> {
-  subscriber?: T;
-  events?: T;
-  articles?: T;
+export interface AudiencesSelect<T extends boolean = true> {
+  name?: T;
+  resendId?: T;
   updatedAt?: T;
   createdAt?: T;
 }
