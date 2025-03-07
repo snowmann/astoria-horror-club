@@ -1,12 +1,13 @@
 import React from 'react'
 import './styles.css'
 import SubscriberForm from './components/SubscriberForm'
+import Header from './components/Header'
 
 export default async function HomePage() {
   return (
     <div className="home">
+      <Header />
       <div className="content">
-        <h1 className="pb-8">Astoria Horror Club</h1>
         <SubscriberForm />
       </div>
     </div>

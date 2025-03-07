@@ -166,9 +166,9 @@ img {
 
 h1 {
   margin: 40px 0;
-  font-size: 64px;
   line-height: 70px;
   font-weight: bold;
+  text-align: center;
 }
 
 p {
@@ -197,7 +197,6 @@ svg {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: center;
   height: 100vh;
   padding: 45px;
   max-width: 1024px;
@@ -209,7 +208,7 @@ svg {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   flex-grow: 1;
 }
 
@@ -245,9 +244,8 @@ svg {
   display: flex;
   align-items: center;
   gap: 8px;
-} */
-
-.home .footer p {
+}
+*/ .home .footer p {
   margin: 0;
 }
 
