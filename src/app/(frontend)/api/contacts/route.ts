@@ -11,7 +11,7 @@ type ContactsPostReq = {
 export async function POST(req: NextRequest) {
   try {
     const { firstName, lastName, email }: ContactsPostReq = await req.json()
-    console.log({ firstName, lastName, email })
+
     if (!firstName || !lastName || !email) {
       return NextResponse.json(
         { message: 'Missing required fields' },
@@ -25,7 +25,7 @@ export async function POST(req: NextRequest) {
     // We only support sending to the General audience list
     // Adding other lists will require us to subscribe to a plan
     const audience = audienceResp.data?.data[0]
-    console.log({ audience })
+
     if (audienceResp.error || !audience) {
       return NextResponse.json(
         {
@@ -36,14 +36,14 @@ export async function POST(req: NextRequest) {
     }
 
     const audienceId = audience.id
-    console.log({ audienceId })
+
     const { data, error } = await resend.contacts.create({
       audienceId,
       firstName,
       lastName,
       email,
     })
-    console.log({ data, error })
+
     const success = !!data && !error
     const status = success ? STATUS_CODES.Created : STATUS_CODES.InternalServerError
 
