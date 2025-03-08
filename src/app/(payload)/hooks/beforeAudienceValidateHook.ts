@@ -8,7 +8,7 @@ export const beforeAudienceValidateHook: CollectionBeforeValidateHook = async ({
   if (operation !== 'create' || typeof data?.name !== 'string') {
     return data
   }
-  console.log({ data, operation })
+
   const { name } = data
   try {
     const resend = new Resend(process.env.RESEND_FULL_API_KEY || '')
@@ -18,7 +18,7 @@ export const beforeAudienceValidateHook: CollectionBeforeValidateHook = async ({
       console.error(resp.error)
       return null
     }
-    console.log({ resp })
+
     return { ...data, resendId: resp.data?.id }
   } catch (err) {
     console.error(err)
