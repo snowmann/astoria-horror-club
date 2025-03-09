@@ -54,10 +54,6 @@ export function Events(props: EventProps) {
             .content {
               margin: 20px 0;
             }
-            .button {
-              text-align: center;
-              margin: 20px 0;
-            }
           `}
         </style>
       </Head>
