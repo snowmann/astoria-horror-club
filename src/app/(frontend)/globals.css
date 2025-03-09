@@ -135,14 +135,13 @@
 html {
   font-size: 18px;
   line-height: 32px;
-  background: rgb(0, 0, 0);
   -webkit-font-smoothing: antialiased;
 }
 
 html,
 body,
 #app {
-  height: 100%;
+  height: 95%;
 }
 
 body {
@@ -150,7 +149,6 @@ body {
   font-size: 18px;
   line-height: 32px;
   margin: 0;
-  color: rgb(1000, 1000, 1000);
 }
 
 /* Add cursor style for all buttons on hover */
@@ -177,28 +175,35 @@ p {
 
 a {
   color: currentColor;
-}
 
-a:focus {
-  opacity: 0.8;
-  outline: none;
-}
+  &:focus {
+    opacity: 0.8;
+    outline: none;
+  }
 
-a:active {
-  opacity: 0.7;
-  outline: none;
+  &:active {
+    opacity: 0.7;
+    outline: none;
+  }
 }
 
 svg {
   vertical-align: middle;
 }
 
+main {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: 45px;
+  overflow-y: scroll;
+}
+
 .home {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 100vh;
-  padding: 45px;
+  height: 100%;
   max-width: 1024px;
   margin: 0 auto;
   overflow: hidden;
@@ -212,46 +217,47 @@ svg {
   flex-grow: 1;
 }
 
-.home .content h1 {
-  text-align: center;
-}
-
-.home .links {
+.links {
   display: flex;
   align-items: center;
   gap: 12px;
 }
 
-.home .links a {
+a {
   text-decoration: none;
   padding: 0.25rem 0.5rem;
   border-radius: 4px;
 }
 
-.home .links .admin {
+.admin {
   color: rgb(0, 0, 0);
   background: rgb(1000, 1000, 1000);
   border: 1px solid rgb(0, 0, 0);
 }
 
-.home .links .docs {
+.docs {
   color: rgb(1000, 1000, 1000);
   background: rgb(0, 0, 0);
   border: 1px solid rgb(1000, 1000, 1000);
 }
 
-.home .footer {
+.footer {
   display: flex;
   align-items: center;
   gap: 8px;
-}
-*/ .home .footer p {
-  margin: 0;
+
+  p {
+    margin: 0;
+  }
+
+  .codeLink {
+    text-decoration: none;
+    padding: 0 0.5rem;
+    background: rgb(60, 60, 60);
+    border-radius: 4px;
+  }
 }
 
-.home .footer .codeLink {
-  text-decoration: none;
-  padding: 0 0.5rem;
-  background: rgb(60, 60, 60);
-  border-radius: 4px;
+.border {
+  border-width: 3px;
 }
