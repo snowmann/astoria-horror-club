@@ -1,6 +1,7 @@
 import { isAuthor } from '@/access/isAuthor'
 import { canPublish } from '@/access/canPublish'
 import { isAdmin } from '@/access/isAdmin'
+import { lexicalEditor, FixedToolbarFeature } from '@payloadcms/richtext-lexical'
 import type { CollectionConfig, PayloadRequest } from 'payload'
 
 export const Articles: CollectionConfig = {
@@ -53,6 +54,11 @@ export const Articles: CollectionConfig = {
       name: 'content',
       type: 'richText',
       required: true,
+      editor: lexicalEditor({
+        features({ defaultFeatures }) {
+          return [...defaultFeatures, FixedToolbarFeature()]
+        },
+      }),
     },
     {
       name: 'author',
