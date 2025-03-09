@@ -15,7 +15,7 @@ function AlertIcon({ variant }: Pick<Props, 'variant'>) {
     case 'success':
       return <CircleCheck className="h-4 w-4" />
     default:
-      return <CircleAlert />
+      return <CircleAlert className="h-4 w-4" />
   }
 }
 

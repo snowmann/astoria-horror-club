@@ -16,6 +16,14 @@ import { z } from 'zod'
 import Alert, { type Props as AlertProps } from './Alert'
 import { useState } from 'react'
 import { CreateContactResponseSuccess, ErrorResponse } from 'resend'
+import {
+  Card,
+  CardHeader,
+  CardContent,
+  CardFooter,
+  CardTitle,
+  CardDescription,
+} from '@/components/ui/card'
 
 type CreateContactResponse = {
   data: CreateContactResponseSuccess | null
@@ -79,65 +87,76 @@ export default function SubscriberForm() {
     <>
       {alertData && <Alert {...alertData} styles="mb-16" />}
       {success !== true && (
-        <Form {...form}>
-          <form
-            onSubmit={form.handleSubmit((formValues) => onSubscriberSubmit(formValues))}
-            className="space-y-4"
-          >
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <FormField
-                control={form.control}
-                name="firstName"
-                render={({ field: formField }) => (
-                  <FormItem className="pb-8">
-                    <FormLabel>First Name</FormLabel>
-                    <FormControl>
-                      <Input placeholder="First Name" {...formField} />
-                    </FormControl>
-                    <div className="relative">
-                      <FormMessage className="absolute -top-6 left-0 w-full" />
-                    </div>
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="lastName"
-                render={({ field: formField }) => (
-                  <FormItem className="pb-8">
-                    <FormLabel>Last Name</FormLabel>
-                    <FormControl>
-                      <Input placeholder="Last Name" {...formField} />
-                    </FormControl>
-                    <div className="relative">
-                      <FormMessage className="absolute -top-6 left-0 w-full" />
-                    </div>
-                  </FormItem>
-                )}
-              />
-            </div>
-            <div className="grid grid-cols-1">
-              <FormField
-                control={form.control}
-                name="email"
-                render={({ field: formField }) => (
-                  <FormItem className="pb-8">
-                    <FormLabel>Email</FormLabel>
-                    <FormControl>
-                      <Input placeholder="Email" {...formField} />
-                    </FormControl>
-                    <div className="relative">
-                      <FormMessage className="absolute -top-6 left-0 w-full" />
-                    </div>
-                  </FormItem>
-                )}
-              />
-            </div>
-            <div className="flex justify-end">
-              <Button type="submit">Submit</Button>
-            </div>
-          </form>
-        </Form>
+        <Card>
+          <CardHeader className="pb-8">
+            <CardTitle>Subscribe to Our Newsletter</CardTitle>
+            <CardDescription>Keep up to date with events and articles</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <Form {...form}>
+              <form className="space-y-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <FormField
+                    control={form.control}
+                    name="firstName"
+                    render={({ field: formField }) => (
+                      <FormItem className="pb-6">
+                        <FormLabel>First Name</FormLabel>
+                        <FormControl>
+                          <Input placeholder="First Name" {...formField} />
+                        </FormControl>
+                        <div className="relative">
+                          <FormMessage className="absolute -top-6 left-0 w-full" />
+                        </div>
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={form.control}
+                    name="lastName"
+                    render={({ field: formField }) => (
+                      <FormItem className="pb-6">
+                        <FormLabel>Last Name</FormLabel>
+                        <FormControl>
+                          <Input placeholder="Last Name" {...formField} />
+                        </FormControl>
+                        <div className="relative">
+                          <FormMessage className="absolute -top-6 left-0 w-full" />
+                        </div>
+                      </FormItem>
+                    )}
+                  />
+                </div>
+                <div className="grid grid-cols-1">
+                  <FormField
+                    control={form.control}
+                    name="email"
+                    render={({ field: formField }) => (
+                      <FormItem className="pb-8">
+                        <FormLabel>Email</FormLabel>
+                        <FormControl>
+                          <Input placeholder="Email" {...formField} />
+                        </FormControl>
+                        <div className="relative">
+                          <FormMessage className="absolute -top-6 left-0 w-full" />
+                        </div>
+                      </FormItem>
+                    )}
+                  />
+                </div>
+              </form>
+            </Form>
+          </CardContent>
+          <CardFooter className="self-end">
+            <Button
+              type="submit"
+              className="self-end"
+              onClick={form.handleSubmit((formValues) => onSubscriberSubmit(formValues))}
+            >
+              Subscribe
+            </Button>
+          </CardFooter>
+        </Card>
       )}
     </>
   )
