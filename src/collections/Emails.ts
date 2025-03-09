@@ -5,6 +5,7 @@ import type { CollectionConfig, PayloadRequest } from 'payload'
 import { getNextYearDate, toTitleCase } from '@/app/(payload)/utils.ts/collectionUtils'
 import { SUBSCRIPTIONS_LIST } from '@/app/(payload)/constants/subscriptionsList'
 import afterEmailCreate from '@/app/(payload)/hooks/afterEmailPublish'
+import { lexicalEditor, FixedToolbarFeature } from '@payloadcms/richtext-lexical'
 
 export const Emails: CollectionConfig = {
   slug: 'emails',
@@ -56,7 +57,16 @@ export const Emails: CollectionConfig = {
       type: 'text',
       required: true,
     },
-    { name: 'body', type: 'richText', required: true },
+    {
+      name: 'body',
+      type: 'richText',
+      required: true,
+      editor: lexicalEditor({
+        features({ defaultFeatures }) {
+          return [...defaultFeatures, FixedToolbarFeature()]
+        },
+      }),
+    },
     {
       name: 'html',
       type: 'code',
