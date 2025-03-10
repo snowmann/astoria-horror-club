@@ -12,7 +12,14 @@ export const Events: CollectionConfig = {
   },
   access: {
     read: ({ req }: { req: PayloadRequest }) => {
-      return isOrganizer({ req })
+      if (isOrganizer({ req })) {
+        return true // Organizers can see all events
+      }
+      return {
+        _status: {
+          equals: 'published', // Others can only see published events
+        },
+      }
     },
     create: ({ req }: { req: PayloadRequest }) => {
       return isOrganizer({ req })
