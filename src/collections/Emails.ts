@@ -2,15 +2,15 @@ import { isAuthor } from '@/access/isAuthor'
 import { canPublish } from '@/access/canPublish'
 import { isAdmin } from '@/access/isAdmin'
 import type { CollectionConfig, PayloadRequest } from 'payload'
-import { getNextYearDate, toTitleCase } from '@/app/(payload)/utils.ts/collectionUtils'
-import { SUBSCRIPTIONS_LIST } from '@/app/(payload)/constants/subscriptionsList'
-import afterEmailCreate from '@/app/(payload)/hooks/afterEmailPublish'
-import { lexicalEditor, FixedToolbarFeature } from '@payloadcms/richtext-lexical'
+import { getNextYearDate } from '@/app/utils.ts/utils'
+import { afterEmailOperation } from '@/app/(payload)/hooks/emails/afterEmailPublish'
+import { beforeEmailValidation } from '@/app/(payload)/hooks/emails/beforeEmailValidation'
+import { beforeEmailDelete } from '@/app/(payload)/hooks/emails/beforeEmailDelete'
 
 export const Emails: CollectionConfig = {
   slug: 'emails',
   admin: {
-    useAsTitle: 'title',
+    useAsTitle: 'subject',
     components: {
       edit: {
         PublishButton: '../app/(payload)/components/PublishButton',
@@ -18,7 +18,9 @@ export const Emails: CollectionConfig = {
     },
   },
   hooks: {
-    afterOperation: [afterEmailCreate],
+    beforeValidate: [beforeEmailValidation],
+    afterOperation: [afterEmailOperation],
+    beforeDelete: [beforeEmailDelete],
   },
   versions: {
     drafts: true,
@@ -48,41 +50,15 @@ export const Emails: CollectionConfig = {
   },
   fields: [
     {
-      name: 'title',
-      type: 'text',
-      required: true,
-    },
-    {
       name: 'subject',
       type: 'text',
       required: true,
     },
     {
-      name: 'body',
-      type: 'richText',
-      required: true,
-      editor: lexicalEditor({
-        features({ defaultFeatures }) {
-          return [...defaultFeatures, FixedToolbarFeature()]
-        },
-      }),
-    },
-    {
-      name: 'html',
-      type: 'code',
-      hidden: true,
-      admin: {
-        language: 'html',
-      },
-    },
-    {
-      name: 'author',
+      name: 'content',
       type: 'relationship',
-      relationTo: 'users',
-      admin: {
-        readOnly: true,
-      },
-      defaultValue: ({ req }) => (req.user ? req.user.id : null),
+      relationTo: ['articles', 'events'],
+      required: true,
     },
     {
       name: 'sendDatetime',
@@ -97,14 +73,15 @@ export const Emails: CollectionConfig = {
       },
     },
     {
-      name: 'recipients',
-      type: 'select',
-      options: [
-        { label: 'All', value: 'all' },
-        ...SUBSCRIPTIONS_LIST.map((sub) => ({ label: toTitleCase(sub), value: sub })),
-      ],
+      name: 'audience',
+      type: 'relationship',
+      relationTo: 'audiences',
       required: true,
-      hasMany: true,
+    },
+    {
+      name: 'resendId',
+      type: 'text',
+      hidden: true,
     },
   ],
 }

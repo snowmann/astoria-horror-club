@@ -1,5 +1,5 @@
 import { isAdmin } from '@/access/isAdmin'
-import { beforeAudienceValidateHook } from '@/app/(payload)/hooks/beforeAudienceValidateHook'
+import { beforeAudienceValidateHook } from '@/app/(payload)/hooks/audiences/beforeAudienceValidateHook'
 import type { CollectionConfig, PayloadRequest } from 'payload'
 
 export const Audiences: CollectionConfig = {
