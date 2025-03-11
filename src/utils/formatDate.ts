@@ -10,7 +10,7 @@ interface FormatTimeOptions {
 
 export const formatDatetime = (date: string | number | Date): string => {
   const eventDate = new Date(date)
-  const day = eventDate.toLocaleDateString('en-US', { weekday: 'short' } as FormatDateOptions)
+  const day = eventDate.toLocaleDateString('en-US', { weekday: 'short' } as FormatDatetimeOptions)
   const dayOfMonth = eventDate.getDate()
   const time = eventDate.toLocaleTimeString('en-US', {
     hour: 'numeric',
