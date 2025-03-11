@@ -10,7 +10,7 @@ import {
   Markdown,
   Tailwind,
 } from '@react-email/components'
-import { formatDate } from '../../../../utils/formatDate'
+import { formatDatetime } from '../../../../utils/formatDate'
 
 interface EventProps {
   title: string
