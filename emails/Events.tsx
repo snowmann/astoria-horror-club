@@ -5,7 +5,7 @@ export function EventsEmail() {
   const defaultProps = {
     title: 'Eraserhead Screening',
     subtitle: 'A Night of Cult Classics',
-    date: '2025-03-16T19:00:00-05:00',
+    datetime: '2025-03-16T19:00:00-05:00',
     image: 'https://placecats.com/310/310',
     location: 'Focal Point Beer Co.',
     price: '$10',
