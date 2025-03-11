@@ -1,4 +1,4 @@
-interface FormatDateOptions {
+interface FormatDatetimeOptions {
   weekday: 'short'
 }
 
