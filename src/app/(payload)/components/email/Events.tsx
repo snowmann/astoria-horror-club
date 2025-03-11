@@ -24,7 +24,7 @@ interface EventProps {
 }
 
 export function Events(props: EventProps) {
-  const { title, subtitle, date, image, location, price, content } = props
+  const { title, subtitle, datetime, image, location, price, content } = props
 
   return (
     <Html lang="en">
