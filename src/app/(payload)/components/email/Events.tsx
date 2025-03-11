@@ -15,7 +15,7 @@ import { formatDate } from '../../../../utils/formatDate'
 interface EventProps {
   title: string
   subtitle: string
-  date: string
+  datetime: string
   image: string
   location: string
   price: string
