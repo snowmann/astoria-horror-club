@@ -8,7 +8,7 @@ interface FormatTimeOptions {
   hour12: boolean
 }
 
-export const formatDate = (date: string | number | Date): string => {
+export const formatDatetime = (date: string | number | Date): string => {
   const eventDate = new Date(date)
   const day = eventDate.toLocaleDateString('en-US', { weekday: 'short' } as FormatDateOptions)
   const dayOfMonth = eventDate.getDate()
