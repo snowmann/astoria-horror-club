@@ -60,7 +60,7 @@ export function Events(props: EventProps) {
               </div>
               <div className="pl-3 w-full md:w-2/3">
                 <Text className="mb-2">
-                  <strong>Date:</strong> {formatDate(date)}
+                  <strong>Date:</strong> {formatDatetime(datetime)}
                 </Text>
                 <Text className="mb-2">
                   <strong>Location:</strong> {location}
