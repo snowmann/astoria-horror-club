@@ -13,7 +13,7 @@ export const Emails: CollectionConfig = {
     useAsTitle: 'subject',
     components: {
       edit: {
-        PublishButton: '../app/(payload)/components/PublishButton',
+        PublishButton: 'src/app/(payload)/components/PublishButton',
       },
     },
   },

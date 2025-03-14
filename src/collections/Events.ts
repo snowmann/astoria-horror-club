@@ -61,7 +61,7 @@ export const Events: CollectionConfig = {
       name: 'price',
       type: 'ui',
       label: 'Ticket Price',
-      admin: { components: { Field: '../app/(payload)/components/PriceField' } },
+      admin: { components: { Field: 'src/app/(payload)/components/PriceField' } },
     },
     { name: 'link', type: 'text' },
   ],
