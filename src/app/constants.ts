@@ -1,3 +1,5 @@
+export const AHC_EMAIL_ADDRESS = 'boo@astoriahorrorclub.com'
+
 export const STATUS_CODES = {
   Continue: 100,
   SwitchingProtocols: 101,

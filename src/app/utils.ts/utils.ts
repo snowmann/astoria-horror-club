@@ -12,3 +12,11 @@ export function toTitleCase(str: string) {
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
     .join(' ')
 }
+
+export const isNullish = (value: unknown) => {
+  return value === null || value === undefined
+}
+
+export const isStringNullishOrEmpty = (str: string | null | undefined) => {
+  return isNullish(str) || str.length === 0
+}

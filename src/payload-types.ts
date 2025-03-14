@@ -166,7 +166,7 @@ export interface Media {
 export interface Event {
   id: number;
   title: string;
-  description: string;
+  content: string;
   date: string;
   image?: (number | null) | Media;
   location: 'heartOfGold' | 'focalPoint' | 'shilTavern';
@@ -209,27 +209,19 @@ export interface Article {
  */
 export interface Email {
   id: number;
-  title: string;
   subject: string;
-  body: {
-    root: {
-      type: string;
-      children: {
-        type: string;
-        version: number;
-        [k: string]: unknown;
-      }[];
-      direction: ('ltr' | 'rtl') | null;
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-      indent: number;
-      version: number;
-    };
-    [k: string]: unknown;
-  };
-  html?: string | null;
-  author?: (number | null) | User;
+  content:
+    | {
+        relationTo: 'articles';
+        value: number | Article;
+      }
+    | {
+        relationTo: 'events';
+        value: number | Event;
+      };
   sendDatetime: string;
-  recipients: ('all' | 'events' | 'articles')[];
+  audience: number | Audience;
+  resendId?: string | null;
   updatedAt: string;
   createdAt: string;
   _status?: ('draft' | 'published') | null;
@@ -361,7 +353,7 @@ export interface MediaSelect<T extends boolean = true> {
  */
 export interface EventsSelect<T extends boolean = true> {
   title?: T;
-  description?: T;
+  content?: T;
   date?: T;
   image?: T;
   location?: T;
@@ -388,13 +380,11 @@ export interface ArticlesSelect<T extends boolean = true> {
  * via the `definition` "emails_select".
  */
 export interface EmailsSelect<T extends boolean = true> {
-  title?: T;
   subject?: T;
-  body?: T;
-  html?: T;
-  author?: T;
+  content?: T;
   sendDatetime?: T;
-  recipients?: T;
+  audience?: T;
+  resendId?: T;
   updatedAt?: T;
   createdAt?: T;
   _status?: T;
