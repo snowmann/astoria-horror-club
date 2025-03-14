@@ -18,5 +18,5 @@ export const formatDatetime = (datetime: string | number | Date): string => {
     hour12: true,
     timeZone: 'America/New_York',
   } as FormatTimeOptions)
-  return `${day}, ${dayOfMonth} @${time}`
+  return `${day}, ${dayOfMonth} @ ${time}`
 }

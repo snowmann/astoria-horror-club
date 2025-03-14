@@ -3,6 +3,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
+
 @custom-variant dark (&:is(.dark *));
 @plugin 'tailwindcss-animate';
 
@@ -260,4 +262,10 @@ a {
 
 .border {
   border-width: 3px;
+}
+
+.creepster {
+  font-family: 'Creepster', system-ui;
+  font-weight: 400;
+  font-style: normal;
 }

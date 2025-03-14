@@ -1,4 +1,8 @@
+export const AHC_SITE_URL = 'https://www.astoriahorrorclub.com/'
+
 export const AHC_EMAIL_ADDRESS = 'boo@astoriahorrorclub.com'
+
+export const AHC_DISCORD_INVITE_URL = 'https://discord.gg/HubAHgKx'
 
 export const STATUS_CODES = {
   Continue: 100,
