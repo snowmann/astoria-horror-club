@@ -10,7 +10,7 @@ export const Articles: CollectionConfig = {
     useAsTitle: 'title',
     components: {
       edit: {
-        PublishButton: '../app/(payload)/components/PublishButton',
+        PublishButton: 'src/app/(payload)/components/PublishButton',
       },
     },
   },
