@@ -1,5 +1,9 @@
 import EventsEmailTemplate from '@/app/(payload)/components/email/EventsEmailTemplate'
 import * as React from 'react'
+<<<<<<< Updated upstream:emails/EmailTemplate.tsx
+=======
+import Events from '../src/app/(payload)/components/emailTemplates/EventsEmailTemplate'
+>>>>>>> Stashed changes:emails/Events.tsx
 
 export function EventsEmail() {
   const defaultProps = {

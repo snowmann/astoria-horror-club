@@ -12,49 +12,59 @@ export const beforeEmailValidation: CollectionBeforeValidateHook = async ({
     return data
   }
 
-  if (isNullish(data) || typeof data?.subject !== 'string' || typeof data?.audience !== 'number') {
+  if (
+    isNullish(data) ||
+    typeof data?.subject !== 'string' ||
+    typeof data?.audience !== 'number' ||
+    typeof data?.sendDatetime !== 'string'
+  ) {
     throw new APIError('beforeEmailValidation: Missing data', STATUS_CODES.BadRequest)
   }
 
   const { payload } = req
 
   try {
+    const resend = new Resend(process.env.RESEND_FULL_API_KEY || '')
+
     const audience = await payload.findByID({
       collection: 'audiences',
       id: data.audience.toString(),
     })
 
-    const resend = new Resend(process.env.RESEND_FULL_API_KEY || '')
+    // if this is a create hook, create the broadcast before sending
+    // otherwise, use existing resendId to send the broadcast
+    let resendId: string = data.resendId
+    if (operation === 'create') {
+      const createResp = await resend.broadcasts.create({
+        from: AHC_EMAIL_ADDRESS,
+        subject: data.subject,
+        name: data.subject,
+        audienceId: audience.resendId,
+        text: 'HARDCODED TEST TEXT',
+      })
 
-    if (operation !== 'update') {
-      if (typeof data?.resendId !== 'string') {
-        throw new APIError('PAYLOAD: Unable to get resendId', STATUS_CODES.InternalServerError)
-      }
-      const removeResp = await resend.broadcasts.remove(data.resendId)
-      if (removeResp.error || isNullish(removeResp.data)) {
+      if (createResp.error || isNullish(createResp.data)) {
         throw new APIError(
-          removeResp.error?.message ?? 'PAYLOAD: Unable to get resendId',
+          createResp.error?.message ?? 'RESEND: Error creating braodcast',
           STATUS_CODES.ServiceUnavailable,
         )
       }
+      resendId = createResp.data.id
     }
 
-    const resp = await resend.broadcasts.create({
-      from: AHC_EMAIL_ADDRESS,
-      subject: data.subject,
-      name: data.subject,
-      audienceId: audience.id.toString(),
-      text: 'HARDCODED TEST TEXT',
+    // send() schedules the broadcast
+    const sendResp = await resend.broadcasts.send(resendId, {
+      scheduledAt: data.sendDatetime,
     })
 
-    if (resp.error || isNullish(resp.data)) {
+    if (sendResp.error || isNullish(sendResp.data)) {
       throw new APIError(
-        resp.error?.message ?? 'RESEND: An Unknown Error Occurred',
+        sendResp.error?.message ?? 'RESEND: Error scheduling broadcast',
         STATUS_CODES.ServiceUnavailable,
       )
     }
 
-    return { ...data, resendId: resp.data.id }
+    return { ...data, resendId }
   } catch (err) {
     let errMessage = 'An Unknown Error Occurred'
     if (err instanceof Error) {
