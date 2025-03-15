@@ -3,7 +3,6 @@ import { canPublish } from '@/access/canPublish'
 import { isAdmin } from '@/access/isAdmin'
 import type { CollectionConfig, PayloadRequest } from 'payload'
 import { getNextYearDate } from '@/app/utils.ts/utils'
-import { afterEmailOperation } from '@/app/(payload)/hooks/emails/afterEmailPublish'
 import { beforeEmailValidation } from '@/app/(payload)/hooks/emails/beforeEmailValidation'
 import { beforeEmailDelete } from '@/app/(payload)/hooks/emails/beforeEmailDelete'
 
@@ -19,7 +18,6 @@ export const Emails: CollectionConfig = {
   },
   hooks: {
     beforeValidate: [beforeEmailValidation],
-    afterOperation: [afterEmailOperation],
     beforeDelete: [beforeEmailDelete],
   },
   versions: {

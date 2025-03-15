@@ -39,9 +39,9 @@ export async function POST(req: NextRequest) {
 
     const { data, error } = await resend.contacts.create({
       audienceId,
-      firstName,
-      lastName,
-      email,
+      firstName: firstName.toLowerCase(),
+      lastName: lastName.toLocaleLowerCase(),
+      email: email.toLowerCase(),
     })
 
     const success = !!data && !error

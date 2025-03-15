@@ -39,7 +39,11 @@ export const Events: CollectionConfig = {
       type: 'text',
       required: true,
     },
-    { name: 'content', type: 'textarea', required: true },
+    {
+      name: 'content',
+      type: 'textarea',
+      required: true,
+    },
     {
       name: 'date',
       type: 'date',
