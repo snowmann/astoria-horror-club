@@ -1,4 +1,4 @@
-export const AHC_SITE_URL = 'https://www.astoriahorrorclub.com/'
+export const AHC_SITE_URL = 'https://www.astoriahorrorclub.com'
 
 export const AHC_EMAIL_ADDRESS = 'boo@astoriahorrorclub.com'
 
