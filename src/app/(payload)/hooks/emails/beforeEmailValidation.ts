@@ -35,6 +35,8 @@ export const beforeEmailValidation: CollectionBeforeValidateHook = async ({
     // otherwise, use existing resendId to send the broadcast
     let resendId: string = data.resendId
     if (operation === 'create') {
+      // the 'name' field should match the subject
+      // 'name' refers to a label stored in Resend
       const createResp = await resend.broadcasts.create({
         from: AHC_EMAIL_ADDRESS,
         subject: data.subject,

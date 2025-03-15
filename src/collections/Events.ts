@@ -1,6 +1,5 @@
 import { isAdmin } from '@/access/isAdmin'
 import { isOrganizer } from '@/access/isOrganizer'
-import { FixedToolbarFeature, lexicalEditor } from '@payloadcms/richtext-lexical'
 import type { CollectionConfig, PayloadRequest } from 'payload'
 
 export const Events: CollectionConfig = {
@@ -42,13 +41,8 @@ export const Events: CollectionConfig = {
     },
     {
       name: 'content',
-      type: 'richText',
+      type: 'textarea',
       required: true,
-      editor: lexicalEditor({
-        features({ defaultFeatures }) {
-          return [...defaultFeatures, FixedToolbarFeature()]
-        },
-      }),
     },
     {
       name: 'date',
