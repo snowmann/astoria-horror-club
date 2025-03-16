@@ -46,6 +46,8 @@ export function EventsEmail() {
       location={getLocationString(emailData.location as keyof Loctions)}
       price={emailData.price}
       content={emailData.content}
+      linkUrl={'astoriahorrorclub.com'}
+      linkText={'Read More'}
     />
   )
 }

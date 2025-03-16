@@ -24,6 +24,7 @@ import {
   DISCORD_ICON_SVG_URL,
   INSTAGRAM_ICON_SVG_URL,
 } from '@/app/constants'
+import { useState } from 'react'
 
 type Props = {
   title: string
@@ -36,6 +37,14 @@ type Props = {
   linkText?: string
 }
 
+const tailwindToCSS = {
+  red700: '#c10007',
+  stone100: '#f5f5f4',
+  stone200: '#e7e5e4',
+  stone300: '#d6d3d1',
+  stone900: '#1c1917',
+}
+
 function EventsEmailTemplate({
   title,
   datetime,
@@ -46,6 +55,8 @@ function EventsEmailTemplate({
   linkUrl,
   linkText,
 }: Props) {
+  const [buttonHover, setButtonHover] = useState(false)
+
   return (
     <Html lang="en">
       <Tailwind
@@ -67,19 +78,28 @@ function EventsEmailTemplate({
             rel="stylesheet"
           />
         </Head>
-        <Body className="bg-stone-900 text-stone-200">
-          <Container width={'95%'}>
-            <Section className="mt-[32px] text-center">
+        <Body style={{ backgroundColor: tailwindToCSS.stone900, color: tailwindToCSS.stone200 }}>
+          <Container width={'95%'} style={{ marginBottom: '2.5rem' }} className="mb-10">
+            <Section style={{ marginTop: 32, textAlign: 'center' }}>
               <Row>
                 <Heading
-                  className="m-0 text-[40px] font-creepster leading-[36px] text-stone-100"
+                  style={{
+                    margin: 0,
+                    fontSize: 40,
+                    fontFamily: 'creepster',
+                    color: tailwindToCSS.stone100,
+                  }}
                   as="h1"
-                  style={{ fontFamily: 'creepster' }}
                 >
                   ASTORIA HORROR CLUB
                 </Heading>
                 <Heading
-                  className="my-[24px] text-[24px] font-semibold leading-[28px] text-stone-200"
+                  style={{
+                    marginBlock: 24,
+                    fontSize: 24,
+                    fontWeight: 600,
+                    color: tailwindToCSS.stone200,
+                  }}
                   as="h2"
                 >
                   {title}
@@ -88,67 +108,105 @@ function EventsEmailTemplate({
             </Section>
             <Section>
               <Row>
-                <Column align="center" className="box-border w-1/2 margin-y-auto">
+                <Column
+                  align="center"
+                  style={{
+                    boxSizing: 'border-box',
+                    width: '50%',
+                    marginBlock: 'auto',
+                  }}
+                >
                   {image && (
                     <Img
                       alt={title}
-                      className="rounded-[12px] object-contain border border-stone-200 h-[30rem]"
+                      style={{
+                        borderRadius: 12,
+                        height: '30rem',
+                        objectFit: 'contain',
+                        marginBottom: 18,
+                      }}
                       src={image}
                     />
                   )}
                 </Column>
               </Row>
               <Row>
-                <Column className="box-border w-full">
+                <Column style={{ width: '100%', boxSizing: 'border-box' }}>
                   <Markdown markdownContainerStyles={{ marginBottom: '2em' }}>{content}</Markdown>
                   {datetime && (
-                    <Text className="mb-2 text-[14px]">
+                    <Text style={{ marginBottom: 2, fontSize: 14 }}>
                       <strong>Date:</strong> {formatDatetime(datetime)}
                     </Text>
                   )}
                   {location && (
-                    <Text className="mb-2 text-[14px]">
+                    <Text style={{ marginBottom: 2, fontSize: 14 }}>
                       <strong>Location:</strong> {location}
                     </Text>
                   )}
                   {price && (
-                    <Text className="mb-2 text-[14px]">
+                    <Text style={{ marginBottom: 2, fontSize: 14 }}>
                       <strong>Price:</strong> {`$${price}`}
                     </Text>
                   )}
-                  <div>
-                    {linkUrl && (
-                      <Button
-                        className="my-[16px] rounded-[8px] bg-stone-100 hover:bg-stone-100 px-[40px] py-[12px] font-semibold text-stone-900 text-center w-3/4"
-                        href={linkUrl}
-                      >
-                        {linkText ?? 'Read more'}
-                      </Button>
-                    )}
-                  </div>
+                </Column>
+              </Row>
+              <Row>
+                <Column align="center">
+                  {linkUrl && (
+                    <Button
+                      style={{
+                        marginBlock: 15,
+                        borderRadius: 8,
+                        backgroundColor: tailwindToCSS.stone100,
+                        paddingInline: 40,
+                        paddingBlock: 12,
+                        fontWeight: 600,
+                        color: tailwindToCSS.stone900,
+                        textAlign: 'center',
+                        width: '50%',
+                      }}
+                      href={linkUrl}
+                    >
+                      {linkText ?? 'Read more'}
+                    </Button>
+                  )}
                 </Column>
               </Row>
             </Section>
-            <Hr className="my-[24px] border-t-2" />
-            <Section className="border mb-10">
-              <Row className="m-auto align-middle w-3/5">
-                <Column className="p-[10px]">
+            <Hr style={{ marginBlock: 24, borderTopColor: tailwindToCSS.stone300 }} />
+            <Section style={{ marginBottom: 5 }}>
+              <Row style={{ margin: 'auto', verticalAlign: 'middle', width: '60%' }}>
+                <Column style={{ padding: 10 }}>
                   <Link
                     href={AHC_SITE_URL}
-                    className="text-[24px] text-red-700 underline font-creepster"
+                    style={{
+                      fontSize: 24,
+                      color: tailwindToCSS.red700,
+                      textDecorationLine: 'underline',
+                      fontFamily: 'creepster',
+                    }}
                   >
                     astoriahorrorclub.com
                   </Link>
                 </Column>
-                <Column className="p-[10px]">
+                <Column style={{ padding: 10 }}>
                   <Link href={AHC_DISCORD_INVITE_URL}>
                     <Img height={24} src={DISCORD_ICON_SVG_URL} />
                   </Link>
                 </Column>
-                <Column className="p-[10px]">
+                <Column style={{ padding: 10 }}>
                   <Link href={AHC_INSTAGRAM_URL}>
                     <Img height={24} src={INSTAGRAM_ICON_SVG_URL} />
                   </Link>
+                </Column>
+              </Row>
+            </Section>
+            <Section>
+              <Row>
+                <Column align="center">
+                  <Text style={{ fontSize: 14, margin: 0, color: tailwindToCSS.stone300 }}>
+                    © 2021 Astoria Horror Club
+                  </Text>
                 </Column>
               </Row>
             </Section>
