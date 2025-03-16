@@ -21,8 +21,8 @@ import {
   AHC_DISCORD_INVITE_URL,
   AHC_INSTAGRAM_URL,
   AHC_SITE_URL,
-  DISCORD_ICON_SVG_URL,
-  INSTAGRAM_ICON_SVG_URL,
+  DISCORD_ICON_PNG_URL,
+  INSTAGRAM_ICON_PNG_URL,
 } from '@/app/constants'
 
 type Props = {
@@ -188,12 +188,12 @@ function EventsEmailTemplate({
                 </Column>
                 <Column style={{ padding: 10 }}>
                   <Link href={AHC_DISCORD_INVITE_URL}>
-                    <Img height={24} src={DISCORD_ICON_SVG_URL} />
+                    <Img height={24} src={DISCORD_ICON_PNG_URL} />
                   </Link>
                 </Column>
                 <Column style={{ padding: 10 }}>
                   <Link href={AHC_INSTAGRAM_URL}>
-                    <Img height={24} src={INSTAGRAM_ICON_SVG_URL} />
+                    <Img height={24} src={INSTAGRAM_ICON_PNG_URL} />
                   </Link>
                 </Column>
               </Row>
