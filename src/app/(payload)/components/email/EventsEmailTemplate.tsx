@@ -17,7 +17,13 @@ import {
   Link,
   Hr,
 } from '@react-email/components'
-import { AHC_DISCORD_INVITE_URL, AHC_SITE_URL } from '@/app/constants'
+import {
+  AHC_DISCORD_INVITE_URL,
+  AHC_INSTAGRAM_URL,
+  AHC_SITE_URL,
+  DISCORD_ICON_SVG_URL,
+  INSTAGRAM_ICON_SVG_URL,
+} from '@/app/constants'
 
 type Props = {
   title: string
@@ -55,94 +61,65 @@ function EventsEmailTemplate({
         <Head>
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+          {/* eslint-disable-next-line @next/next/no-page-custom-font */}
           <link
             href="https://fonts.googleapis.com/css2?family=Creepster&display=swap"
             rel="stylesheet"
           />
-          <style>
-            {`
-              button:hover {
-                cursor: pointer;
-              }
-              @media only screen and (max-width: 600px) {
-                .mobile-stack {
-                  display: block !important;
-                  width: 100% !important;
-                }
-              }
-            `}
-          </style>
         </Head>
         <Body className="bg-stone-900 text-stone-200">
-          <Container className="flex justify-center">
+          <Container width={'95%'}>
             <Section className="mt-[32px] text-center">
               <Row>
                 <Heading
-                  className="m-0 text-[40px] font-creepster leading-[36px] text-stone-50"
+                  className="m-0 text-[40px] font-creepster leading-[36px] text-stone-100"
                   as="h1"
+                  style={{ fontFamily: 'creepster' }}
                 >
                   ASTORIA HORROR CLUB
                 </Heading>
                 <Heading
-                  className="my-[16px] text-[24px] font-semibold leading-[28px] text-stone-200"
+                  className="my-[24px] text-[24px] font-semibold leading-[28px] text-stone-200"
                   as="h2"
                 >
                   {title}
                 </Heading>
               </Row>
             </Section>
-            <Section className="mt-[12px]">
+            <Section>
               <Row>
-                <Column
-                  className="mobile-stack box-border w-full md:w-[50%] md:pr-[8px]"
-                  style={{
-                    width: '50%',
-                    display: 'inline-block',
-                    verticalAlign: 'middle',
-                  }}
-                >
+                <Column align="center" className="box-border w-1/2 margin-y-auto">
                   {image && (
                     <Img
                       alt={title}
-                      className="rounded-[12px] object-contain border border-stone-200"
+                      className="rounded-[12px] object-contain border border-stone-200 h-[30rem]"
                       src={image}
-                      style={{
-                        width: '100%',
-                        height: 'auto',
-                        maxWidth: '100%',
-                        display: 'block',
-                      }}
                     />
                   )}
                 </Column>
-                <Column
-                  className="mobile-stack box-border w-full md:w-[50%] md:pl-[8px]"
-                  style={{
-                    width: '50%',
-                    display: 'inline-block',
-                    verticalAlign: 'middle',
-                  }}
-                >
+              </Row>
+              <Row>
+                <Column className="box-border w-full">
+                  <Markdown markdownContainerStyles={{ marginBottom: '2em' }}>{content}</Markdown>
                   {datetime && (
-                    <Text className="mb-2">
+                    <Text className="mb-2 text-[14px]">
                       <strong>Date:</strong> {formatDatetime(datetime)}
                     </Text>
                   )}
                   {location && (
-                    <Text className="mb-2">
+                    <Text className="mb-2 text-[14px]">
                       <strong>Location:</strong> {location}
                     </Text>
                   )}
                   {price && (
-                    <Text className="mb-2">
-                      <strong>Price:</strong> {price}
+                    <Text className="mb-2 text-[14px]">
+                      <strong>Price:</strong> {`$${price}`}
                     </Text>
                   )}
-                  <Markdown>{content}</Markdown>
-                  <div className="flex sm:jsutify-center">
+                  <div>
                     {linkUrl && (
                       <Button
-                        className="my-[16px] rounded-[8px] bg-white hover:bg-stone-100 px-[40px] py-[12px] font-semibold text-stone-900 text-center w-3/4"
+                        className="my-[16px] rounded-[8px] bg-stone-100 hover:bg-stone-100 px-[40px] py-[12px] font-semibold text-stone-900 text-center w-3/4"
                         href={linkUrl}
                       >
                         {linkText ?? 'Read more'}
@@ -152,27 +129,26 @@ function EventsEmailTemplate({
                 </Column>
               </Row>
             </Section>
-            <Hr className="my-[24px] border-t-2 border-red-800" />
-            <Section className="m-[16px] text-center border border-stone-50">
-              <Row>
-                <Column>
+            <Hr className="my-[24px] border-t-2" />
+            <Section className="border mb-10">
+              <Row className="m-auto align-middle w-3/5">
+                <Column className="p-[10px]">
                   <Link
                     href={AHC_SITE_URL}
                     className="text-[24px] text-red-700 underline font-creepster"
                   >
                     astoriahorrorclub.com
                   </Link>
-                  <Text className="text-[24px] flex justify-center">
-                    <Img
-                      className="mr-3"
-                      height={24}
-                      src="https://cdn.prod.website-files.com/6257adef93867e50d84d30e2/66e3d80db9971f10a9757c99_Symbol.svg"
-                    />
-                    Join our
-                    <Link className="text-red-600 ml-2" href={AHC_DISCORD_INVITE_URL}>
-                      Discord
-                    </Link>
-                  </Text>
+                </Column>
+                <Column className="p-[10px]">
+                  <Link href={AHC_DISCORD_INVITE_URL}>
+                    <Img height={24} src={DISCORD_ICON_SVG_URL} />
+                  </Link>
+                </Column>
+                <Column className="p-[10px]">
+                  <Link href={AHC_INSTAGRAM_URL}>
+                    <Img height={24} src={INSTAGRAM_ICON_SVG_URL} />
+                  </Link>
                 </Column>
               </Row>
             </Section>
