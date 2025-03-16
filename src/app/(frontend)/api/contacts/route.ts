@@ -24,7 +24,7 @@ export async function POST(req: NextRequest) {
     const audienceResp = await resend.audiences.list()
     // We only support sending to the General audience list
     // Adding other lists will require us to subscribe to a plan
-    const audience = audienceResp.data?.data[0]
+    const audience = audienceResp.data?.data.find((aud) => aud.name === 'General')
 
     if (audienceResp.error || !audience) {
       return NextResponse.json(
