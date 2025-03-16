@@ -75,34 +75,40 @@ function EventsEmailTemplate({
             rel="stylesheet"
           />
         </Head>
-        <Body style={{ backgroundColor: tailwindToCSS.stone900, color: tailwindToCSS.stone200 }}>
+        <Body
+          style={{
+            backgroundColor: tailwindToCSS.stone900,
+            color: tailwindToCSS.stone200,
+            maxWidth: 'none',
+          }}
+        >
+          <Section style={{ marginTop: 32, textAlign: 'center' }}>
+            <Row>
+              <Heading
+                style={{
+                  margin: 0,
+                  fontSize: 40,
+                  fontFamily: 'creepster',
+                  color: tailwindToCSS.stone100,
+                }}
+                as="h1"
+              >
+                ASTORIA HORROR CLUB
+              </Heading>
+              <Heading
+                style={{
+                  marginBlock: 24,
+                  fontSize: 24,
+                  fontWeight: 600,
+                  color: tailwindToCSS.stone200,
+                }}
+                as="h2"
+              >
+                {title}
+              </Heading>
+            </Row>
+          </Section>
           <Container width={'95%'} style={{ marginBottom: '2.5rem' }} className="mb-10">
-            <Section style={{ marginTop: 32, textAlign: 'center' }}>
-              <Row>
-                <Heading
-                  style={{
-                    margin: 0,
-                    fontSize: 40,
-                    fontFamily: 'creepster',
-                    color: tailwindToCSS.stone100,
-                  }}
-                  as="h1"
-                >
-                  ASTORIA HORROR CLUB
-                </Heading>
-                <Heading
-                  style={{
-                    marginBlock: 24,
-                    fontSize: 24,
-                    fontWeight: 600,
-                    color: tailwindToCSS.stone200,
-                  }}
-                  as="h2"
-                >
-                  {title}
-                </Heading>
-              </Row>
-            </Section>
             <Section>
               <Row>
                 <Column
