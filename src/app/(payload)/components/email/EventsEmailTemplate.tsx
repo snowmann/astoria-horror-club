@@ -160,7 +160,7 @@ function EventsEmailTemplate({
                     href={AHC_SITE_URL}
                     className="text-[24px] text-red-700 underline font-creepster"
                   >
-                    asotriahorrorclub.com
+                    astoriahorrorclub.com
                   </Link>
                   <Text className="text-[24px] flex justify-center">
                     <Img

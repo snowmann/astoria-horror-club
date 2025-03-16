@@ -9,7 +9,11 @@ export function getBaseURL() {
   return process.env.AHC_BASE_URL ? process.env.AHC_BASE_URL : `http://localhost:3000`
 }
 
-type Loctions = {
+export function getBlobUrl(url: string) {
+  return `https://fzuxxxhgqwm9izz9.public.blob.vercel-storage.com/${url}`
+}
+
+export type Loctions = {
   heartOfGold: 'Heart of Gold'
   focalPoint: 'Focal Point Beer Co.'
   shilTavern: 'The Shillelagh Tavern'
