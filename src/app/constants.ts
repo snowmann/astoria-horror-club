@@ -7,10 +7,16 @@ export const AHC_DISCORD_INVITE_URL = 'https://discord.gg/HubAHgKx'
 export const DISCORD_ICON_SVG_URL =
   'https://fzuxxxhgqwm9izz9.public.blob.vercel-storage.com/Discord-Symbol-Blurple-lqt9tohtjIt6VHGUs7tj0wSPGeNXBD.svg'
 
+export const DISCORD_ICON_PNG_URL =
+  'https://fzuxxxhgqwm9izz9.public.blob.vercel-storage.com/Discord-Symbol-Blurple-qVbi073hnRjxESi2xu6BLwspIzEs5g.png'
+
 export const AHC_INSTAGRAM_URL = 'https://www.instagram.com/astoriahorrorclub/'
 
 export const INSTAGRAM_ICON_SVG_URL =
   'https://fzuxxxhgqwm9izz9.public.blob.vercel-storage.com/Instagram_Glyph_Gradient-cytRhDzf7XqHFRst9K38AotJg5pZ4i.svg'
+
+export const INSTAGRAM_ICON_PNG_URL =
+  'https://fzuxxxhgqwm9izz9.public.blob.vercel-storage.com/Instagram_Glyph_Gradient-f1H8nHmWH5InPn0jgDAxscCxtVphBD.png'
 
 export const STATUS_CODES = {
   Continue: 100,
