@@ -40,6 +40,16 @@ function EventsEmailTemplate({
   linkUrl,
   linkText,
 }: Props) {
+  console.log('EventsEmailTemplate', {
+    title,
+    datetime,
+    image,
+    location,
+    price,
+    content,
+    linkUrl,
+    linkText,
+  })
   return (
     <Html lang="en">
       <Tailwind
@@ -160,7 +170,7 @@ function EventsEmailTemplate({
                     href={AHC_SITE_URL}
                     className="text-[24px] text-red-700 underline font-creepster"
                   >
-                    asotriahorrorclub.com
+                    astoriahorrorclub.com
                   </Link>
                   <Text className="text-[24px] flex justify-center">
                     <Img

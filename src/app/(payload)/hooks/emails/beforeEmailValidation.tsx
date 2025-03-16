@@ -2,12 +2,15 @@ import { AHC_EMAIL_ADDRESS, STATUS_CODES } from '@/app/constants'
 import { isNullish } from '@/app/utils.ts/utils'
 import { APIError, CollectionBeforeValidateHook } from 'payload'
 import { Resend } from 'resend'
+import EventsEmailTemplate from '../../components/email/EventsEmailTemplate'
+import { getBlobUrl, getLocationString, Loctions } from '@/lib/utils'
 
 export const beforeEmailValidation: CollectionBeforeValidateHook = async ({
   data,
   operation,
   req,
 }) => {
+  console.log('*** beforeEmailValidation')
   if (operation !== 'create' && operation !== 'update') {
     return data
   }
@@ -16,7 +19,10 @@ export const beforeEmailValidation: CollectionBeforeValidateHook = async ({
     isNullish(data) ||
     typeof data?.subject !== 'string' ||
     typeof data?.audience !== 'number' ||
-    typeof data?.sendDatetime !== 'string'
+    typeof data?.sendDatetime !== 'string' ||
+    isNullish(data.content) ||
+    typeof data.content?.relationTo !== 'string' ||
+    typeof data.content?.value !== 'number'
   ) {
     throw new APIError('beforeEmailValidation: Missing data', STATUS_CODES.BadRequest)
   }
@@ -31,6 +37,12 @@ export const beforeEmailValidation: CollectionBeforeValidateHook = async ({
       id: data.audience.toString(),
     })
 
+    const emailData = await payload.findByID({
+      collection: data.content.relationTo,
+      id: data.content.value,
+    })
+    console.log({ emailData })
+
     // if this is a create hook, create the broadcast before sending
     // otherwise, use existing resendId to send the broadcast
     let resendId: string = data.resendId
@@ -42,7 +54,16 @@ export const beforeEmailValidation: CollectionBeforeValidateHook = async ({
         subject: data.subject,
         name: data.subject,
         audienceId: audience.resendId,
-        text: 'HARDCODED TEST TEXT',
+        react: (
+          <EventsEmailTemplate
+            title={emailData.title}
+            datetime={emailData.date}
+            image={getBlobUrl(emailData.image.filename)}
+            location={getLocationString(emailData.location as keyof Loctions)}
+            price={emailData.price}
+            content={emailData.content}
+          />
+        ),
       })
 
       if (createResp.error || isNullish(createResp.data)) {
