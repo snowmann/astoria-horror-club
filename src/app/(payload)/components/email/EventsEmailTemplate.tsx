@@ -24,7 +24,6 @@ import {
   DISCORD_ICON_SVG_URL,
   INSTAGRAM_ICON_SVG_URL,
 } from '@/app/constants'
-import { useState } from 'react'
 
 type Props = {
   title: string
@@ -55,8 +54,6 @@ function EventsEmailTemplate({
   linkUrl,
   linkText,
 }: Props) {
-  const [buttonHover, setButtonHover] = useState(false)
-
   return (
     <Html lang="en">
       <Tailwind
