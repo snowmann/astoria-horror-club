@@ -10,7 +10,6 @@ export const beforeEmailValidation: CollectionBeforeValidateHook = async ({
   operation,
   req,
 }) => {
-  console.log('*** beforeEmailValidation')
   if (operation !== 'create' && operation !== 'update') {
     return data
   }
@@ -41,7 +40,6 @@ export const beforeEmailValidation: CollectionBeforeValidateHook = async ({
       collection: data.content.relationTo,
       id: data.content.value,
     })
-    console.log({ emailData })
 
     // if this is a create hook, create the broadcast before sending
     // otherwise, use existing resendId to send the broadcast

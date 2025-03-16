@@ -40,16 +40,6 @@ function EventsEmailTemplate({
   linkUrl,
   linkText,
 }: Props) {
-  console.log('EventsEmailTemplate', {
-    title,
-    datetime,
-    image,
-    location,
-    price,
-    content,
-    linkUrl,
-    linkText,
-  })
   return (
     <Html lang="en">
       <Tailwind
