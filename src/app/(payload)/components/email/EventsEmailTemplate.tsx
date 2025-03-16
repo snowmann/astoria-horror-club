@@ -72,8 +72,9 @@ function EventsEmailTemplate({
             <Section className="mt-[32px] text-center">
               <Row>
                 <Heading
-                  className="m-0 text-[40px] font-creepster leading-[36px] text-stone-50"
+                  className="m-0 text-[40px] font-creepster leading-[36px] text-stone-100"
                   as="h1"
+                  style={{ fontFamily: 'creepster' }}
                 >
                   ASTORIA HORROR CLUB
                 </Heading>
@@ -118,7 +119,7 @@ function EventsEmailTemplate({
                   <div>
                     {linkUrl && (
                       <Button
-                        className="my-[16px] rounded-[8px] bg-white hover:bg-stone-100 px-[40px] py-[12px] font-semibold text-stone-900 text-center w-3/4"
+                        className="my-[16px] rounded-[8px] bg-stone-100 hover:bg-stone-100 px-[40px] py-[12px] font-semibold text-stone-900 text-center w-3/4"
                         href={linkUrl}
                       >
                         {linkText ?? 'Read more'}
