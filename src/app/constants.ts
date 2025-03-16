@@ -4,6 +4,14 @@ export const AHC_EMAIL_ADDRESS = 'boo@astoriahorrorclub.com'
 
 export const AHC_DISCORD_INVITE_URL = 'https://discord.gg/HubAHgKx'
 
+export const DISCORD_ICON_SVG_URL =
+  'https://fzuxxxhgqwm9izz9.public.blob.vercel-storage.com/Discord-Symbol-Blurple-lqt9tohtjIt6VHGUs7tj0wSPGeNXBD.svg'
+
+export const AHC_INSTAGRAM_URL = 'https://www.instagram.com/astoriahorrorclub/'
+
+export const INSTAGRAM_ICON_SVG_URL =
+  'https://fzuxxxhgqwm9izz9.public.blob.vercel-storage.com/Instagram_Glyph_Gradient-cytRhDzf7XqHFRst9K38AotJg5pZ4i.svg'
+
 export const STATUS_CODES = {
   Continue: 100,
   SwitchingProtocols: 101,
