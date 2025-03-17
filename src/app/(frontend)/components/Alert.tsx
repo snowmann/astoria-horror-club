@@ -19,6 +19,15 @@ function AlertIcon({ variant }: Pick<Props, 'variant'>) {
   }
 }
 
+/**
+ *
+ * @param props
+ * @param props.title string - the title of the alert message
+ * @param props.description string - The message being delivered
+ * @param props.variant string - The type of message to be shown: 'success' | 'destructive' | 'nuetral'
+ * @param props.styles OPTIONAL | string - tailwind styles
+ * @returns Customized Alert component wrapped around ShadCN component
+ */
 export default function Alert({ description, title, variant, styles }: Props) {
   return (
     <BaseAlert variant={variant === 'destructive' ? 'destructive' : 'default'} className={styles}>

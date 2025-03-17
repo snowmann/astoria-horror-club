@@ -1,6 +1,7 @@
 import React from 'react'
 import './globals.css'
 import Header from './components/Header'
+import Footer from './components/Footer'
 
 export const metadata = {
   description: 'The official site of Astoria Horror Club.',
@@ -15,7 +16,7 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
       <body>
         <Header />
         <main>{children}</main>
-        {/* FOOTER */}
+        <Footer />
       </body>
     </html>
   )
