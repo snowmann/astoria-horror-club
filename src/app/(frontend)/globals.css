@@ -141,7 +141,10 @@ html {
 html,
 body,
 #app {
-  height: 95%;
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  background-size: cover;
 }
 
 body {
@@ -194,7 +197,6 @@ svg {
 main {
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
   padding: 45px;
   overflow-y: scroll;
 }

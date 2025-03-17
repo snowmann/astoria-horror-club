@@ -5,9 +5,13 @@ const creepster = Creepster({
   weight: '400',
 })
 
+/**
+ *
+ * @returns Global Header coponents for AHC app
+ */
 export default function Header() {
   return (
-    <header>
+    <header className="flex justify-center">
       <h1 className={`text-6xl ${creepster.className}`}>Astoria Horror Club</h1>
     </header>
   )

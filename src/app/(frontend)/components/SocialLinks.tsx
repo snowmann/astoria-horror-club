@@ -6,10 +6,10 @@ import {
 } from '@/app/constants'
 import Image from 'next/image'
 
-export function SocialLinks() {
+export default function SocialLinks() {
   return (
-    <div className="flex py-9 px-5 w-full justify-between">
-      <span className="flex items-center">
+    <div className="flex flex-col flex-wrap justify-center items-center w-full justify-between">
+      <span className="flex items-center mb-2 mr-3">
         Join Our Discord{' '}
         <a href={AHC_DISCORD_INVITE_URL} target="_blank">
           <Image
@@ -20,7 +20,7 @@ export function SocialLinks() {
           />
         </a>
       </span>
-      <span className="flex items-center">
+      <span className="flex items-center mb-2">
         Follow Us On Instagram{' '}
         <a href={AHC_INSTAGRAM_URL} target="_blank">
           <Image

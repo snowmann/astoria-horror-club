@@ -88,9 +88,11 @@ export default function SubscriberForm() {
       {alertData && <Alert {...alertData} styles="mb-16" />}
       {success !== true && (
         <Card>
-          <CardHeader className="pb-8">
-            <CardTitle>Subscribe to Our Newsletter</CardTitle>
-            <CardDescription>Keep up to date with events and articles</CardDescription>
+          <CardHeader className="pb-4 md:pb-8">
+            <CardTitle className="pb-2 text-center md:text-start">
+              Subscribe to Our Newsletter
+            </CardTitle>
+            <CardDescription>Keep up to date with events, articles, and more.</CardDescription>
           </CardHeader>
           <CardContent>
             <Form {...form}>
@@ -147,10 +149,10 @@ export default function SubscriberForm() {
               </form>
             </Form>
           </CardContent>
-          <CardFooter className="self-end">
+          <CardFooter className="w-full md:justify-end">
             <Button
               type="submit"
-              className="self-end"
+              className="w-full md:w-fit"
               onClick={form.handleSubmit((formValues) => onSubscriberSubmit(formValues))}
             >
               Subscribe
