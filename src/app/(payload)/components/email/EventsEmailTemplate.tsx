@@ -24,6 +24,8 @@ import {
   DISCORD_ICON_PNG_URL,
   INSTAGRAM_ICON_PNG_URL,
 } from '@/app/constants'
+import { tailwindToCSS } from './utils/utils'
+import EmailFooter from './EmailFooter'
 
 type Props = {
   title: string
@@ -34,14 +36,6 @@ type Props = {
   content: string
   linkUrl?: string
   linkText?: string
-}
-
-const tailwindToCSS = {
-  red700: '#c10007',
-  stone100: '#f5f5f4',
-  stone200: '#e7e5e4',
-  stone300: '#d6d3d1',
-  stone900: '#1c1917',
 }
 
 function EventsEmailTemplate({
@@ -176,43 +170,7 @@ function EventsEmailTemplate({
                 </Column>
               </Row>
             </Section>
-            <Hr style={{ marginBlock: 24, borderTopColor: tailwindToCSS.stone300 }} />
-            <Section style={{ marginBottom: 5 }}>
-              <Row style={{ margin: 'auto', verticalAlign: 'middle', width: '60%' }}>
-                <Column style={{ padding: 10 }}>
-                  <Link
-                    href={AHC_SITE_URL}
-                    style={{
-                      fontSize: 24,
-                      color: tailwindToCSS.red700,
-                      textDecorationLine: 'underline',
-                      fontFamily: 'creepster',
-                    }}
-                  >
-                    astoriahorrorclub.com
-                  </Link>
-                </Column>
-                <Column style={{ padding: 10 }}>
-                  <Link href={AHC_DISCORD_INVITE_URL}>
-                    <Img height={24} src={DISCORD_ICON_PNG_URL} />
-                  </Link>
-                </Column>
-                <Column style={{ padding: 10 }}>
-                  <Link href={AHC_INSTAGRAM_URL}>
-                    <Img height={24} src={INSTAGRAM_ICON_PNG_URL} />
-                  </Link>
-                </Column>
-              </Row>
-            </Section>
-            <Section>
-              <Row>
-                <Column align="center">
-                  <Text style={{ fontSize: 14, margin: 0, color: tailwindToCSS.stone300 }}>
-                    © 2021 Astoria Horror Club
-                  </Text>
-                </Column>
-              </Row>
-            </Section>
+            <EmailFooter />
           </Container>
         </Body>
       </Tailwind>
