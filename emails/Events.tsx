@@ -37,7 +37,7 @@ const emailData = {
   _status: 'published',
 }
 
-export function EventsEmail() {
+function Events() {
   return (
     <EventsEmailTemplate
       title={emailData.title}
@@ -52,4 +52,4 @@ export function EventsEmail() {
   )
 }
 
-export default EventsEmail
+export default Events
