@@ -14,16 +14,7 @@ import {
   Html,
   Head,
   Body,
-  Link,
-  Hr,
 } from '@react-email/components'
-import {
-  AHC_DISCORD_INVITE_URL,
-  AHC_INSTAGRAM_URL,
-  AHC_SITE_URL,
-  DISCORD_ICON_PNG_URL,
-  INSTAGRAM_ICON_PNG_URL,
-} from '@/app/constants'
 import { tailwindToCSS } from './utils/utils'
 import EmailFooter from './EmailFooter'
 

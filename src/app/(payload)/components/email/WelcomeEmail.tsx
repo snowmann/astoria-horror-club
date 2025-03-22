@@ -62,8 +62,9 @@ function WelcomeEmail() {
                   <Column align="center">
                     <Text>
                       Thank you for joining the Astoria Horror Club newsletter. We&apos;re happy
-                      you&apos;ve decided to join our community. You&apos;ll now get emails for all
-                      of our events like club meetings, 16mm film screenings, parties, and more.
+                      you&apos;ve decided to be a part of our community. You&apos;ll now get emails
+                      for all of our events like club meetings, 16mm film screenings, parties, and
+                      more.
                     </Text>
                   </Column>
                 </Row>
