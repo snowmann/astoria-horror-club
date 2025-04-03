@@ -17,6 +17,9 @@ jobs:
     outputs:
       branch: ${{ steps.branch_name.outputs.current_branch }}
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      secrets: read # Critical for secret access
     steps:
       - name: Get branch name
         id: branch_name
@@ -34,6 +37,9 @@ jobs:
       || github.event.action == 'opened'
       || github.event.action == 'reopened')
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      secrets: read # Critical for secret access
     steps:
       - name: Create Neon Branch
         id: create_neon_branch
@@ -87,6 +93,9 @@ jobs:
     needs: setup
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      secrets: read # Critical for secret access
     steps:
       - name: Delete Neon Branch
         uses: neondatabase/delete-branch-action@v3
