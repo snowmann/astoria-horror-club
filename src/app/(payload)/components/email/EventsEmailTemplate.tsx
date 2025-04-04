@@ -62,7 +62,7 @@ function EventsEmailTemplate({
         </Head>
         <Body
           style={{
-            backgroundColor: tailwindToCSS.stone900,
+            backgroundColor: tailwindToCSS.stone950,
             color: tailwindToCSS.stone200,
             maxWidth: 'none',
           }}
@@ -80,20 +80,23 @@ function EventsEmailTemplate({
               >
                 ASTORIA HORROR CLUB
               </Heading>
-              <Heading
-                style={{
-                  marginBlock: 24,
-                  fontSize: 24,
-                  fontWeight: 600,
-                  color: tailwindToCSS.stone200,
-                }}
-                as="h2"
-              >
-                {title}
-              </Heading>
             </Row>
           </Section>
-          <Container width={'95%'} style={{ marginBottom: '2.5rem' }} className="mb-10">
+          <Container
+            style={{ backgroundColor: tailwindToCSS.stone600, padding: '1em', marginBlock: 24 }}
+          >
+            <Heading
+              style={{
+                margin: 8,
+                fontSize: 36,
+                fontWeight: 600,
+                color: tailwindToCSS.stone200,
+                textAlign: 'center',
+              }}
+              as="h2"
+            >
+              {title}
+            </Heading>
             <Section>
               <Row>
                 <Column
@@ -111,7 +114,7 @@ function EventsEmailTemplate({
                         borderRadius: 12,
                         height: '30rem',
                         objectFit: 'contain',
-                        marginBottom: 18,
+                        marginBlock: 18,
                       }}
                       src={image}
                     />
@@ -161,8 +164,8 @@ function EventsEmailTemplate({
                 </Column>
               </Row>
             </Section>
-            <EmailFooter />
           </Container>
+          <EmailFooter />
         </Body>
       </Tailwind>
     </Html>
