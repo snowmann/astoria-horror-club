@@ -1,0 +1,16 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Footer > matches snapshot 1`] = `
+<div>
+  <footer
+    class="flex flex-col justify-between items-center"
+  >
+    <div
+      data-testid="social-links-mock"
+    />
+    <div
+      data-testid="copyright-text-mock"
+    />
+  </footer>
+</div>
+`;
