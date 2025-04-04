@@ -1,0 +1,70 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Alert Component > AlertIcon > matches snapshot for each variant 1`] = `
+<div>
+  <div
+    data-testid="base-alert"
+    data-variant="default"
+  >
+    <div
+      data-testid="circle-alert-icon"
+    />
+    <div
+      data-testid="alert-title"
+    >
+      Test Title
+    </div>
+    <div
+      data-testid="alert-description"
+    >
+      Test description message
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Alert Component > AlertIcon > matches snapshot for each variant 2`] = `
+<div>
+  <div
+    data-testid="base-alert"
+    data-variant="destructive"
+  >
+    <div
+      data-testid="circle-x-icon"
+    />
+    <div
+      data-testid="alert-title"
+    >
+      Test Title
+    </div>
+    <div
+      data-testid="alert-description"
+    >
+      Test description message
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Alert Component > AlertIcon > matches snapshot for each variant 3`] = `
+<div>
+  <div
+    data-testid="base-alert"
+    data-variant="default"
+  >
+    <div
+      data-testid="circle-check-icon"
+    />
+    <div
+      data-testid="alert-title"
+    >
+      Test Title
+    </div>
+    <div
+      data-testid="alert-description"
+    >
+      Test description message
+    </div>
+  </div>
+</div>
+`;

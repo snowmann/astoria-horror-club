@@ -13,7 +13,12 @@
     "generate:types": "cross-env NODE_OPTIONS=--no-deprecation payload generate:types",
     "lint": "cross-env NODE_OPTIONS=--no-deprecation next lint",
     "payload": "cross-env NODE_OPTIONS=--no-deprecation payload",
-    "start": "cross-env NODE_OPTIONS=--no-deprecation next start"
+    "start": "cross-env NODE_OPTIONS=--no-deprecation next start",
+    "test": "vitest",
+    "test:watch": "vitest watch",
+    "test:ui": "vitest --ui",
+    "test:coverage": "vitest run --coverage",
+    "test:ci": "vitest run --coverage --reporter=verbose"
   },
   "dependencies": {
     "@hookform/resolvers": "^4.1.2",
@@ -46,21 +51,27 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.2.0",
+    "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
-    "@testing-library/react": "^16.2.0",
+    "@testing-library/react": "^16.3.0",
     "@testing-library/user-event": "^14.6.1",
     "@types/node": "^22.5.4",
     "@types/react": "19.0.7",
     "@types/react-dom": "19.0.3",
+    "@vitejs/plugin-react": "^4.3.4",
+    "@vitest/coverage-v8": "^3.1.1",
+    "@vitest/ui": "^3.1.1",
     "autoprefixer": "^10.4.20",
     "eslint": "^9.16.0",
     "eslint-config-next": "15.1.5",
+    "jsdom": "^26.0.0",
     "postcss": "^8.5.3",
     "prettier": "^3.4.2",
     "react-email": "3.0.7",
     "tailwindcss": "^4.0.8",
     "typescript": "5.7.3",
-    "vitest": "^3.0.9"
+    "vite-tsconfig-paths": "^5.1.4",
+    "vitest": "^3.1.1"
   },
   "engines": {
     "node": "^18.20.2 || >=20.9.0",

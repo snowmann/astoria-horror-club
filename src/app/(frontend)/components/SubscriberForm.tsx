@@ -25,7 +25,7 @@ import {
   CardDescription,
 } from '@/components/ui/card'
 
-type CreateContactResponse = {
+export type CreateContactResponse = {
   data: CreateContactResponseSuccess | null
   error: ErrorResponse | null
   success: boolean

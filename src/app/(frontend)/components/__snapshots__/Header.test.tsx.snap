@@ -1,0 +1,15 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Header > matches snapshot 1`] = `
+<div>
+  <header
+    class="flex justify-center"
+  >
+    <h1
+      class="text-6xl mock-creepster-font"
+    >
+      Astoria Horror Club
+    </h1>
+  </header>
+</div>
+`;

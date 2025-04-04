@@ -1,0 +1,44 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`SocialLinks > matches snapshot 1`] = `
+<div>
+  <div
+    class="flex flex-col flex-wrap justify-center items-center w-full justify-between"
+  >
+    <span
+      class="flex items-center mb-2 mr-3"
+    >
+      Join Our Discord
+       
+      <a
+        href="https://discord.gg/HubAHgKx"
+        target="_blank"
+      >
+        <img
+          alt="discord social media icon"
+          height="24"
+          src="https://fzuxxxhgqwm9izz9.public.blob.vercel-storage.com/Discord-Symbol-Blurple-lqt9tohtjIt6VHGUs7tj0wSPGeNXBD.svg"
+          width="24"
+        />
+      </a>
+    </span>
+    <span
+      class="flex items-center mb-2"
+    >
+      Follow Us On Instagram
+       
+      <a
+        href="https://www.instagram.com/astoriahorrorclub/"
+        target="_blank"
+      >
+        <img
+          alt="instagram social media icon"
+          height="24"
+          src="https://fzuxxxhgqwm9izz9.public.blob.vercel-storage.com/Instagram_Glyph_Gradient-cytRhDzf7XqHFRst9K38AotJg5pZ4i.svg"
+          width="24"
+        />
+      </a>
+    </span>
+  </div>
+</div>
+`;

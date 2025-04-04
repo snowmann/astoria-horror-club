@@ -1,0 +1,135 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`SubscriberForm > matches snapshot 1`] = `
+<div>
+  <div
+    class="bg-card text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm"
+    data-slot="card"
+  >
+    <div
+      class="flex flex-col gap-1.5 px-6 pb-4 md:pb-8"
+      data-slot="card-header"
+    >
+      <div
+        class="leading-none font-semibold pb-2 text-center md:text-start"
+        data-slot="card-title"
+      >
+        Subscribe to Our Newsletter
+      </div>
+      <div
+        class="text-muted-foreground text-sm"
+        data-slot="card-description"
+      >
+        Keep up to date with events, articles, and more.
+      </div>
+    </div>
+    <div
+      class="px-6"
+      data-slot="card-content"
+    >
+      <form
+        class="space-y-4"
+      >
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 gap-4"
+        >
+          <div
+            class="grid gap-2 pb-6"
+            data-slot="form-item"
+          >
+            <label
+              class="flex items-center gap-2 text-sm leading-none font-medium select-none group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50 data-[error=true]:text-destructive-foreground"
+              data-error="false"
+              data-slot="form-label"
+              for=":r0:-form-item"
+            >
+              First Name
+            </label>
+            <input
+              aria-describedby=":r0:-form-item-description"
+              aria-invalid="false"
+              class="border-input file:text-foreground placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground flex h-9 w-full min-w-0 rounded-md border bg-transparent px-3 py-1 text-base shadow-xs transition-[color,box-shadow] outline-none file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive"
+              data-slot="form-control"
+              id=":r0:-form-item"
+              name="firstName"
+              placeholder="First Name"
+              value=""
+            />
+            <div
+              class="relative"
+            />
+          </div>
+          <div
+            class="grid gap-2 pb-6"
+            data-slot="form-item"
+          >
+            <label
+              class="flex items-center gap-2 text-sm leading-none font-medium select-none group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50 data-[error=true]:text-destructive-foreground"
+              data-error="false"
+              data-slot="form-label"
+              for=":r1:-form-item"
+            >
+              Last Name
+            </label>
+            <input
+              aria-describedby=":r1:-form-item-description"
+              aria-invalid="false"
+              class="border-input file:text-foreground placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground flex h-9 w-full min-w-0 rounded-md border bg-transparent px-3 py-1 text-base shadow-xs transition-[color,box-shadow] outline-none file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive"
+              data-slot="form-control"
+              id=":r1:-form-item"
+              name="lastName"
+              placeholder="Last Name"
+              value=""
+            />
+            <div
+              class="relative"
+            />
+          </div>
+        </div>
+        <div
+          class="grid grid-cols-1"
+        >
+          <div
+            class="grid gap-2 pb-8"
+            data-slot="form-item"
+          >
+            <label
+              class="flex items-center gap-2 text-sm leading-none font-medium select-none group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50 data-[error=true]:text-destructive-foreground"
+              data-error="false"
+              data-slot="form-label"
+              for=":r2:-form-item"
+            >
+              Email
+            </label>
+            <input
+              aria-describedby=":r2:-form-item-description"
+              aria-invalid="false"
+              class="border-input file:text-foreground placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground flex h-9 w-full min-w-0 rounded-md border bg-transparent px-3 py-1 text-base shadow-xs transition-[color,box-shadow] outline-none file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive"
+              data-slot="form-control"
+              id=":r2:-form-item"
+              name="email"
+              placeholder="Email"
+              value=""
+            />
+            <div
+              class="relative"
+            />
+          </div>
+        </div>
+      </form>
+    </div>
+    <div
+      class="flex items-center px-6 w-full md:justify-end"
+      data-slot="card-footer"
+    >
+      <button
+        class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-[color,box-shadow] disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive bg-primary text-primary-foreground shadow-xs hover:bg-primary/90 h-9 px-4 py-2 has-[>svg]:px-3 w-full md:w-fit"
+        data-slot="button"
+        type="submit"
+      >
+        Subscribe
+      </button>
+    </div>
+  </div>
+</div>
+`;
