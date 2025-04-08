@@ -11,13 +11,17 @@ vi.mock('lucide-react', () => ({
 
 // Mock ShadCN components
 vi.mock('@/components/ui/alert', () => ({
-  Alert: ({ children, variant, className }: any) => (
+  Alert: ({ children, variant, className }: Record<string, string>) => (
     <div data-testid="base-alert" data-variant={variant} className={className}>
       {children}
     </div>
   ),
-  AlertTitle: ({ children }: any) => <div data-testid="alert-title">{children}</div>,
-  AlertDescription: ({ children }: any) => <div data-testid="alert-description">{children}</div>,
+  AlertTitle: ({ children }: Record<string, string>) => (
+    <div data-testid="alert-title">{children}</div>
+  ),
+  AlertDescription: ({ children }: Record<string, string>) => (
+    <div data-testid="alert-description">{children}</div>
+  ),
 }))
 
 describe('Alert Component', () => {

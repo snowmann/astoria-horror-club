@@ -1,6 +1,6 @@
-import { describe, it, expect, vi, beforeEach, MockedFunction } from 'vitest'
+import { describe, it, expect, vi, beforeEach } from 'vitest'
 import { POST } from '@/app/(frontend)/api/contacts/route'
-import { NextRequest, NextResponse } from 'next/server'
+import { NextRequest } from 'next/server'
 
 // Create mock Resend client
 const createMockResend = () => ({

@@ -1,10 +1,11 @@
 import { describe, it, expect, vi } from 'vitest'
 import { render, screen } from '@testing-library/react'
 import SocialLinks from './SocialLinks'
+import { ImgHTMLAttributes } from 'react'
 
 vi.mock('next/image', () => ({
   // eslint-disable-next-line @next/next/no-img-element
-  default: (props: any) => <img {...props} />,
+  default: (props: Record<string, string>) => <img {...props} alt="" />,
 }))
 
 describe('SocialLinks', () => {
