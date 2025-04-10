@@ -1,8 +1,6 @@
 import { describe, it, expect, vi } from 'vitest'
 import { render, screen } from '@testing-library/react'
 import Footer from './Footer'
-import SocialLinks from './SocialLinks'
-import CopyrightText from './CopyrightText'
 
 // Mock child components
 vi.mock('./SocialLinks', () => ({

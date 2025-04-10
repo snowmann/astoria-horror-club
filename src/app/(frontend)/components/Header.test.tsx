@@ -1,7 +1,6 @@
 import { describe, it, expect, vi } from 'vitest'
 import { render, screen } from '@testing-library/react'
 import Header from './Header'
-import { Creepster } from 'next/font/google'
 
 // Mock the next/font/google module
 vi.mock('next/font/google', () => ({

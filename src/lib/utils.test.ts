@@ -1,4 +1,4 @@
-import { describe, it, expect, vi, beforeAll } from 'vitest'
+import { describe, it, expect, vi } from 'vitest'
 import { cn, getBaseURL, getBlobUrl, getLocationString } from './utils'
 import { clsx } from 'clsx'
 import { twMerge } from 'tailwind-merge'
@@ -74,7 +74,7 @@ describe('Utility Functions', () => {
 
     it('returns undefined for invalid location', () => {
       // Note: TypeScript would prevent this in actual usage
-      expect(getLocationString('invalid' as any)).toBeUndefined()
+      expect(getLocationString('invalid' as never)).toBeUndefined()
     })
   })
 })
