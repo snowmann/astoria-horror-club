@@ -4,7 +4,7 @@ import SocialLinks from './SocialLinks'
 
 vi.mock('next/image', () => ({
   // eslint-disable-next-line @next/next/no-img-element
-  default: (props: Record<string, string>) => <img {...props} />,
+  default: (props: Record<string, string>) => <img alt="" {...props} />,
 }))
 
 describe('SocialLinks', () => {
