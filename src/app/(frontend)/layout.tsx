@@ -8,7 +8,7 @@ export const metadata = {
   title: 'Astoria Horror Club',
 }
 
-export default async function RootLayout(props: { children: React.ReactNode }) {
+export default function RootLayout(props: { children: React.ReactNode }) {
   const { children } = props
 
   return (
