@@ -63,10 +63,99 @@ export const Events: CollectionConfig = {
     },
     {
       name: 'price',
-      type: 'ui',
+      type: 'number',
       label: 'Ticket Price',
-      admin: { components: { Field: 'src/app/(payload)/components/PriceField' } },
+      admin: {
+        description: 'If a price is set, this event will require ticket purchase through Stripe',
+      },
+    },
+    {
+      name: 'ticketLimit',
+      type: 'number',
+      label: 'Number of Tickets Available',
+      admin: {
+        condition: (data) => Boolean(data.price),
+        description: 'Maximum number of tickets that can be sold for this event',
+      },
+    },
+    {
+      name: 'stripeProductID',
+      type: 'text',
+      admin: {
+        readOnly: true,
+        condition: (data) => Boolean(data.price),
+      },
+    },
+    {
+      name: 'stripePriceID',
+      type: 'text',
+      admin: {
+        readOnly: true,
+        condition: (data) => Boolean(data.price),
+      },
+    },
+    {
+      name: 'ticketsSold',
+      type: 'number',
+      defaultValue: 0,
+      admin: {
+        readOnly: true,
+        condition: (data) => Boolean(data.price),
+      },
     },
     { name: 'link', type: 'text' },
   ],
+  hooks: {
+    beforeChange: [
+      async ({ data, req, operation }) => {
+        if (operation === 'create' && data.price) {
+          // Create Stripe product
+          const productResponse = await fetch('https://api.stripe.com/v1/products', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded',
+              Authorization: `Bearer ${process.env.STRIPE_SECRET_KEY}`,
+            },
+            body: new URLSearchParams({
+              name: data.title,
+              description: data.content,
+              metadata: JSON.stringify({
+                eventId: data.id,
+              }),
+            }),
+          })
+
+          const product = await productResponse.json()
+
+          // Create Stripe price with inventory
+          const priceResponse = await fetch('https://api.stripe.com/v1/prices', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded',
+              Authorization: `Bearer ${process.env.STRIPE_SECRET_KEY}`,
+            },
+            body: new URLSearchParams({
+              product: product.id,
+              unit_amount: (data.price * 100).toString(),
+              currency: 'usd',
+              inventory: JSON.stringify({
+                type: 'finite',
+                quantity: data.ticketLimit || 100, // Default to 100 if not specified
+              }),
+            }),
+          })
+
+          const price = await priceResponse.json()
+
+          return {
+            ...data,
+            stripeProductID: product.id,
+            stripePriceID: price.id,
+          }
+        }
+
+        return data
+      },
+    ],
+  },
 }

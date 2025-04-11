@@ -26,6 +26,7 @@
     "@payloadcms/email-resend": "^3.23.0",
     "@payloadcms/next": "latest",
     "@payloadcms/payload-cloud": "latest",
+    "@payloadcms/plugin-stripe": "^3.32.0",
     "@payloadcms/richtext-lexical": "latest",
     "@payloadcms/storage-vercel-blob": "^3.28.1",
     "@radix-ui/react-label": "^2.1.2",

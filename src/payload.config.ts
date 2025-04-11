@@ -8,6 +8,7 @@ import { fileURLToPath } from 'url'
 import sharp from 'sharp'
 import { resendAdapter } from '@payloadcms/email-resend'
 import { vercelBlobStorage } from '@payloadcms/storage-vercel-blob'
+import { stripePlugin } from '@payloadcms/plugin-stripe'
 
 import { Users } from './collections/Users'
 import { Media } from './collections/Media'
@@ -26,7 +27,7 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
-  collections: [Users, Media, Events, Articles, Emails, Audiences],
+  collections: [Users, Media, Events, Articles, Emails, Audiences, Products, Orders],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
@@ -48,6 +49,11 @@ export default buildConfig({
     vercelBlobStorage({
       collections: { media: true },
       token: process.env.BLOB_READ_WRITE_TOKEN || '',
+    }),
+    stripePlugin({
+      stripeSecretKey: process.env.STRIPE_SECRET_KEY || '',
+      stripeWebhooksEndpointSecret: process.env.STRIPE_WEBHOOKS_SECRET || '',
+      isTestKey: process.env.NODE_ENV === 'development',
     }),
   ],
 })
