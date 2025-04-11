@@ -52,7 +52,6 @@ export default buildConfig({
     }),
     stripePlugin({
       stripeSecretKey: process.env.STRIPE_SECRET_KEY || '',
-      stripeWebhooksEndpointSecret: process.env.STRIPE_WEBHOOKS_SECRET || '',
       isTestKey: process.env.NODE_ENV === 'development',
     }),
   ],
