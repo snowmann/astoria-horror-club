@@ -1,13 +1,20 @@
-import next from '@next/eslint-plugin-next'
-import typescriptEslint from '@typescript-eslint/eslint-plugin'
+import { dirname } from 'path'
+import { fileURLToPath } from 'url'
 import testingLibrary from 'eslint-plugin-testing-library'
 import prettier from 'eslint-plugin-prettier'
+import { FlatCompat } from '@eslint/eslintrc'
 
-export default [
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
+
+const compat = new FlatCompat({
+  baseDirectory: __dirname,
+})
+
+const eslintConfig = [
+  ...compat.extends('next/core-web-vitals', 'next/typescript', 'plugin:testing-library/react'),
   {
     plugins: {
-      '@next/next': next,
-      '@typescript-eslint': typescriptEslint,
       'testing-library': testingLibrary,
       prettier: prettier,
     },
@@ -27,9 +34,8 @@ export default [
           caughtErrorsIgnorePattern: '^(_|ignore)',
         },
       ],
-      'prettier/prettier': 'warn',
-      'testing-library/no-debugging-utils': 'warn',
-      '@next/next/no-html-link-for-pages': 'warn',
     },
   },
 ]
+
+export default eslintConfig
