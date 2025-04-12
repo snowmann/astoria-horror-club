@@ -1,1 +1,4 @@
-npx lint-staged
+echo "🐺 Running pre-commit hook..."
+echo "🔍 Running linter..." && npm run lint --fix || { echo "❌ Lint failed"; exit 1; }
+echo "🎨 Running prettier..." && npm run format || { echo "❌ Prettier failed"; exit 1; }
+echo "🧪 Running tests..." && npm run test:once|| { echo "❌ Tests failed"; exit 1; }
