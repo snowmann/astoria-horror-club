@@ -21,7 +21,7 @@ const eslintConfig = [
   ),
   {
     plugins: {
-      testingLibrary: testingLibraryPlugin,
+      'testing-library': testingLibraryPlugin,
       prettier: prettierPlugin,
     },
   },
