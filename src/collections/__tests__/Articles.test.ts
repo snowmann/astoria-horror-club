@@ -1,19 +1,22 @@
-import { describe, it, expect, vi } from 'vitest'
+import { describe, it, expect } from 'vitest'
 import { Articles } from '../Articles'
-import { isAuthor } from '@/access/isAuthor'
-import { isAdmin } from '@/access/isAdmin'
-import { canPublish } from '@/access/canPublish'
 import type { CollectionConfig, Field } from 'payload'
 
 type TextField = Field & { name: string; required?: boolean; type: 'text' }
 type TextareaField = Field & { name: string; type: 'textarea' }
-type RichTextField = Field & { name: string; required?: boolean; type: 'richText'; editor: any }
+type RichTextEditorConfig = { toolbar: string[]; plugins?: string[] } // Example configuration type
+type RichTextField = Field & {
+  name: string
+  required?: boolean
+  type: 'richText'
+  editor: RichTextEditorConfig
+}
 type RelationshipField = Field & {
   name: string
   type: 'relationship'
   relationTo: string
   admin?: { readOnly?: boolean }
-  defaultValue?: (req: any) => string | null
+  defaultValue?: (req: { req: { user: { id: string } | null } }) => string | null
 }
 
 describe('Articles Collection', () => {
@@ -115,7 +118,7 @@ describe('Articles Collection', () => {
         id: 'test-user-id',
         role: ['editor'],
       },
-    } as any
+    } as { user: { id: string; role: string[] } }
 
     it('should handle unauthenticated users', () => {
       const access = (Articles as CollectionConfig).access
