@@ -48,8 +48,8 @@ describe('SubscriberForm', () => {
 
     await waitFor(() => {
       expect(screen.getAllByText('Required')).toHaveLength(2)
-      expect(screen.getByText('Invalid email address.')).toBeDefined()
     })
+    expect(screen.getByText('Invalid email address.')).toBeDefined()
   })
 
   it('shows email validation error when invalid email is entered', async () => {
@@ -97,10 +97,9 @@ describe('SubscriberForm', () => {
           email: 'john@example.com',
         }),
       })
-
-      expect(screen.getByText('You have been subscribed to our newletter')).toBeDefined()
-      expect(screen.queryByRole('button', { name: 'Subscribe' })).toBeNull()
     })
+    expect(screen.getByText('You have been subscribed to our newletter')).toBeDefined()
+    expect(screen.queryByRole('button', { name: 'Subscribe' })).toBeNull()
   })
 
   it('shows error message when API fails', async () => {
