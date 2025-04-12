@@ -3,7 +3,8 @@ on:
   pull_request:
 
 jobs:
-  Test:
+  test:
+    name: Run Test Suite
     runs-on: ubuntu-latest
 
     permissions:
