@@ -15,7 +15,6 @@ const eslintConfig = [
   ...compat.extends('next/core-web-vitals', 'next/typescript', 'plugin:testing-library/react'),
   {
     plugins: {
-      'testing-library': testingLibrary,
       prettier: prettier,
     },
     rules: {
