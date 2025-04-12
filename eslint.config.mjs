@@ -13,16 +13,11 @@ const compat = new FlatCompat({
 })
 
 const eslintConfig = [
-  ...compat.extends(
-    'next/core-web-vitals',
-    'next/typescript',
-    'plugin:eslint-plugin-prettier',
-    'plugin:testing-library/react',
-  ),
+  ...compat.extends('next/core-web-vitals', 'next/typescript'),
   {
     plugins: {
       prettier: prettierPlugin,
-      testingLibrary: testingLibraryPlugin,
+      'testing-library': testingLibraryPlugin,
     },
   },
   prettierConfig,
