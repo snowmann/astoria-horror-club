@@ -1,32 +1,16 @@
-import { dirname } from 'path'
-import { fileURLToPath } from 'url'
-import { FlatCompat } from '@eslint/eslintrc'
-import prettierConfig from 'eslint-config-prettier'
-import prettierPlugin from 'eslint-plugin-prettier'
-import testingLibraryPlugin from 'eslint-plugin-testing-library'
+import next from '@next/eslint-plugin-next'
+import typescriptEslint from '@typescript-eslint/eslint-plugin'
+import testingLibrary from 'eslint-plugin-testing-library'
+import prettier from 'eslint-plugin-prettier'
 
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = dirname(__filename)
-
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-})
-
-const eslintConfig = [
-  ...compat.extends(
-    'next/core-web-vitals',
-    'next/typescript',
-    'plugin:testing-library/react',
-    'prettier',
-  ),
+export default [
   {
     plugins: {
-      'testing-library': testingLibraryPlugin,
-      prettier: prettierPlugin,
+      '@next/next': next,
+      '@typescript-eslint': typescriptEslint,
+      'testing-library': testingLibrary,
+      prettier: prettier,
     },
-  },
-  prettierConfig,
-  {
     rules: {
       '@typescript-eslint/ban-ts-comment': 'warn',
       '@typescript-eslint/no-empty-interface': 'warn',
@@ -45,8 +29,7 @@ const eslintConfig = [
       ],
       'prettier/prettier': 'warn',
       'testing-library/no-debugging-utils': 'warn',
+      '@next/next/no-html-link-for-pages': 'warn',
     },
   },
 ]
-
-export default eslintConfig
