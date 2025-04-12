@@ -24,7 +24,7 @@ const eslintConfig = [
   {
     rules: {
       '@typescript-eslint/ban-ts-comment': 'warn',
-      '@typescript-eslint/no-empty-interface': 'warn', // Fixed rule name
+      '@typescript-eslint/no-empty-interface': 'warn',
       '@typescript-eslint/no-explicit-any': 'warn',
       '@typescript-eslint/no-unused-vars': [
         'warn',
