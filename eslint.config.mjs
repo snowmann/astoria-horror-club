@@ -1,6 +1,5 @@
 import { dirname } from 'path'
 import { fileURLToPath } from 'url'
-import prettier from 'eslint-plugin-prettier'
 import { FlatCompat } from '@eslint/eslintrc'
 
 const __filename = fileURLToPath(import.meta.url)
@@ -11,11 +10,13 @@ const compat = new FlatCompat({
 })
 
 const eslintConfig = [
-  ...compat.extends('next/core-web-vitals', 'next/typescript', 'plugin:testing-library/react'),
+  ...compat.extends(
+    'next/core-web-vitals',
+    'next/typescript',
+    'plugin:testing-library/react',
+    'prettier',
+  ),
   {
-    plugins: {
-      prettier: prettier,
-    },
     rules: {
       '@typescript-eslint/ban-ts-comment': 'warn',
       '@typescript-eslint/no-empty-interface': 'warn',
