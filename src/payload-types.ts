@@ -173,6 +173,20 @@ export interface Event {
   date: string
   image?: (number | null) | Media
   location: 'heartOfGold' | 'focalPoint' | 'shilTavern'
+  /**
+   * If a price is set, this event will require ticket purchase through Stripe
+   */
+  price?: number | null
+  /**
+   * Maximum number of tickets that can be sold for this event
+   */
+  ticketLimit?: number | null
+  stripeProductID?: string | null
+  stripePriceID?: string | null
+  /**
+   * Stripe payment link URL for ticket purchases
+   */
+  stripePaymentLinkURL?: string | null
   link?: string | null
   updatedAt: string
   createdAt: string
@@ -360,6 +374,11 @@ export interface EventsSelect<T extends boolean = true> {
   date?: T
   image?: T
   location?: T
+  price?: T
+  ticketLimit?: T
+  stripeProductID?: T
+  stripePriceID?: T
+  stripePaymentLinkURL?: T
   link?: T
   updatedAt?: T
   createdAt?: T

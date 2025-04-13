@@ -8,6 +8,7 @@ import { fileURLToPath } from 'url'
 import sharp from 'sharp'
 import { resendAdapter } from '@payloadcms/email-resend'
 import { vercelBlobStorage } from '@payloadcms/storage-vercel-blob'
+import { stripePlugin } from '@payloadcms/plugin-stripe'
 
 import { Users } from './collections/Users'
 import { Media } from './collections/Media'
@@ -48,6 +49,10 @@ export default buildConfig({
     vercelBlobStorage({
       collections: { media: true },
       token: process.env.BLOB_READ_WRITE_TOKEN || '',
+    }),
+    stripePlugin({
+      stripeSecretKey: process.env.STRIPE_SECRET_KEY || '',
+      isTestKey: process.env.NODE_ENV !== 'production',
     }),
   ],
 })
