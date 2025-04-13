@@ -1,6 +1,5 @@
 import { dirname } from 'path'
 import { fileURLToPath } from 'url'
-import testingLibrary from 'eslint-plugin-testing-library'
 import prettier from 'eslint-plugin-prettier'
 import { FlatCompat } from '@eslint/eslintrc'
 
