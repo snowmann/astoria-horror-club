@@ -52,7 +52,7 @@ export default buildConfig({
     }),
     stripePlugin({
       stripeSecretKey: process.env.STRIPE_SECRET_KEY || '',
-      isTestKey: process.env.NODE_ENV === 'development',
+      isTestKey: process.env.NODE_ENV !== 'production',
     }),
   ],
 })
