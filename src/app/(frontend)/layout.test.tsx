@@ -10,14 +10,13 @@ vi.mock('next/font/google', () => ({
 
 describe('RootLayout', () => {
   it('renders child content', () => {
-    const { getByText } = render(
+    render(
       <RootLayout>
         <div>Test Content</div>
       </RootLayout>,
     )
-    screen.debug()
 
-    expect(getByText('Test Content')).toBeDefined()
+    expect(screen.getByText('Test Content')).toBeDefined()
   })
 
   it('matches snapshot', () => {
